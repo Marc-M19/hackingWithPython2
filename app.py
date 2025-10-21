@@ -129,5 +129,46 @@ def posts():
     conn.close()
     return render_template("posts.html", posts=rows)
 
+@app.route("/edit_bio/<int:uid>", methods=["GET", "POST"])
+def edit_bio(uid):
+    # Nur eingeloggte Nutzer dürfen die Seite erreichen (sonst -> login)
+    if not session.get("user"):
+        return redirect(url_for("login"))
+
+    conn = get_db()
+    cur = conn.cursor(dictionary=True)
+
+    if request.method == "POST":
+        # Bio aus Formular, 512 Zeichen limit, sehr einfache Escape für '
+        bio = request.form.get("bio", "")[:512]
+        bio = bio.replace("'", "''")  # simple escape (still insecure)
+        try:
+            # Absichtlich unsicher: string formatting (Übungszwecke)
+            cur.execute(f"UPDATE users SET bio = '{bio}' WHERE id = {uid}")
+            conn.commit()
+            flash("Bio aktualisiert.", "success")
+        except Exception as e:
+            conn.rollback()
+            flash("Fehler beim Aktualisieren: " + str(e), "danger")
+        finally:
+            cur.close()
+            conn.close()
+        return redirect(url_for("users"))
+
+    # GET: vorhandene Nutzerdaten laden und editieren
+    try:
+        cur.execute(f"SELECT * FROM users WHERE id = {uid} LIMIT 1")
+        row = cur.fetchone()
+    finally:
+        cur.close()
+        conn.close()
+
+    if not row:
+        flash("User nicht gefunden.", "danger")
+        return redirect(url_for("users"))
+
+    return render_template("edit_bio.html", u=row)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5001)

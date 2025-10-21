@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center py-5">
+  <div class="card shadow-sm w-100" style="max-width: 520px;">
+    <div class="card-body">
+      <h2 class="h4 text-center mb-4">Bio bearbeiten</h2>
+      <form method="post" class="d-grid gap-3">
+        <div>
+          <label for="bio" class="form-label">Bio (max. 512 Zeichen)</label>
+          <textarea id="bio" name="bio" class="form-control" rows="8" maxlength="512">{{ u.bio }}</textarea>
+          <div class="form-text text-end"><span id="bioCounter">0</span>/512</div>
+        </div>
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-primary flex-fill">Speichern</button>
+          <a class="btn btn-outline-secondary flex-fill" href="{{ url_for('users') }}">Abbrechen</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const bioField = document.getElementById('bio');
+  const counter = document.getElementById('bioCounter');
+  if (bioField && counter) {
+    const updateCounter = () => {
+      counter.textContent = bioField.value.length;
+    };
+    updateCounter();
+    bioField.addEventListener('input', updateCounter);
+  }
+});
+</script>
+{% endblock %}
