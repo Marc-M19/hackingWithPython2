@@ -1,12 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Register</h2>
-<form method="post">
-  <label>Username: <input name="username" required maxlength="150"></label><br/><br/>
-  <label>Password: <input name="password" type="password" required maxlength="255"></label><br/><br/>
-  <label>Bio (max 512 chars):<br/>
-    <textarea name="bio" rows="6" maxlength="512" placeholder="Write up to 512 characters..."></textarea>
-  </label><br/><br/>
-  <button type="submit">Register</button>
-</form>
+<div class="d-flex justify-content-center py-5">
+  <div class="card shadow-sm w-100" style="max-width: 420px;">
+    <div class="card-body">
+      <h2 class="h4 text-center mb-4">Register</h2>
+      <form method="post" class="d-grid gap-3">
+        <div>
+          <label for="username" class="form-label">Username</label>
+          <input id="username" name="username" class="form-control" required maxlength="150">
+        </div>
+        <div>
+          <label for="password" class="form-label">Password</label>
+          <input id="password" name="password" type="password" class="form-control" required maxlength="255">
+        </div>
+        <div>
+          <label for="bio" class="form-label">Bio (max 512 chars)</label>
+          <textarea id="bio" name="bio" rows="6" maxlength="512" class="form-control" placeholder="Write up to 512 characters..."></textarea>
+          <div class="form-text text-end"><span id="bioCounter">0</span>/512</div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const bioField = document.getElementById('bio');
+  const counter = document.getElementById('bioCounter');
+  if (bioField && counter) {
+    const updateCounter = () => {
+      counter.textContent = bioField.value.length;
+    };
+    updateCounter();
+    bioField.addEventListener('input', updateCounter);
+  }
+});
+</script>
 {% endblock %}

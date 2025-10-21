@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-4" style="max-width: 900px;">
+  <h2 class="mb-3">Neuen Content posten</h2>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <form method="post">
+        <div class="mb-3">
+          <label class="form-label">Content (max. 512 Zeichen)</label>
+          <textarea name="content" class="form-control" rows="5" maxlength="512" placeholder="Schreibe etwas..."></textarea>
+          <div id="cnt" class="text-end small mt-1">0/512</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Posten</button>
+      </form>
+    </div>
+  </div>
+
+  <h3 class="mb-3">Alle Posts</h3>
+  <div class="list-group">
+    {% for p in posts %}
+      <div class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <strong>@{{ p.username }}</strong>
+          <small>{{ p.created_at }}</small>
+        </div>
+        <div class="mt-2" style="white-space: pre-wrap;">{{ p.content }}</div>
+      </div>
+    {% else %}
+      <div class="text-muted">Noch keine Posts vorhanden.</div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  (function(){
+    const ta = document.querySelector('textarea[name="content"]');
+    if(!ta) return;
+    const max = 512;
+    const cnt = document.getElementById('cnt');
+    function upd(){ cnt.textContent = ta.value.length + '/' + max; }
+    ta.addEventListener('input', upd); upd();
+  })();
+</script>
+{% endblock %}

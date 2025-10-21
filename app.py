@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
+
 import mysql.connector
 import os
 
@@ -9,7 +10,7 @@ app.secret_key = os.urandom(24)  # for sessions
 DB_CONFIG = {
     "host": "127.0.0.1",
     "user": "root",
-    "password": "example",   # change for your local DB
+    "password": "mysql",   # change for your local DB
     "database": "hackingdb",
     "port": 3306
 }
@@ -87,5 +88,46 @@ def users():
     conn.close()
     return render_template("users.html", users=rows, me=session.get("user"))
 
+@app.route("/posts", methods=["GET", "POST"])
+def posts():
+    if not session.get("user"):
+        return redirect(url_for("login"))
+
+    # POST: einfachen Content speichern (unsicher, plain SQL)
+    if request.method == "POST":
+        content = request.form.get("content", "")[:512]  # 512-Limit
+        user_id = session["user"]["id"]
+        conn = get_db()
+        cur = conn.cursor()
+        try:
+            # absichtlich unsicher: string formatting → SQLi-Übungsgrundlage
+            cur.execute(f"INSERT INTO posts (user_id, content) VALUES ({user_id}, '{content}')")
+            conn.commit()
+            flash("Post gespeichert.", "success")
+        except Exception as e:
+            conn.rollback()
+            flash("Fehler beim Speichern: " + str(e), "danger")
+        finally:
+            cur.close()
+            conn.close()
+        return redirect(url_for("posts"))
+
+    # GET: alle Posts anzeigen (auch unsicher, simple Join per f-String wäre möglich;
+    # hier erstmal ohne Join, Username holen wir separat unten)
+    conn = get_db()
+    cur = conn.cursor(dictionary=True)
+    cur.execute("SELECT p.id, p.user_id, p.content, p.created_at FROM posts p ORDER BY p.created_at DESC")
+    rows = cur.fetchall()
+
+    # Benutzername pro Post nachladen (sehr simpel/ineffizient – absichtlich)
+    for r in rows:
+        cur.execute(f"SELECT username FROM users WHERE id = {r['user_id']} LIMIT 1")
+        u = cur.fetchone()
+        r["username"] = u["username"] if u else "unknown"
+
+    cur.close()
+    conn.close()
+    return render_template("posts.html", posts=rows)
+
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
