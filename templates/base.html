@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>HackingWithPython Lab</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 900px; margin: 2rem auto; }
+      nav a { margin-right: 1rem; }
+      .flash { padding:0.5rem; border-radius:4px; margin-bottom:1rem; }
+      .flash.success { background:#dff0d8 }
+      .flash.danger { background:#f2dede }
+      table { width:100%; border-collapse: collapse; }
+      table th, table td { border:1px solid #ccc; padding:0.4rem; text-align:left; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      {% if session.user %}
+        <a href="{{ url_for('users') }}">All Users</a>
+        <a href="{{ url_for('logout') }}">Logout ({{ session.user.username }})</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+      {% endif %}
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat, msg in messages %}
+          <div class="flash {{ cat }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>HackingWithPython — Lernseite</h1>
+<p>Lokaler Testserver. Zweck: experiments with bad code/security.</p>
+{% if user %}
+  <p>Welcome, <strong>{{ user.username }}</strong>.</p>
+{% else %}
+  <p>Bitte einloggen oder registrieren.</p>
+{% endif %}
+{% endblock %}

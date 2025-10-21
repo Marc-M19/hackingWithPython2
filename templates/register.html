@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+  <label>Username: <input name="username" required maxlength="150"></label><br/><br/>
+  <label>Password: <input name="password" type="password" required maxlength="255"></label><br/><br/>
+  <label>Bio (max 512 chars):<br/>
+    <textarea name="bio" rows="6" maxlength="512" placeholder="Write up to 512 characters..."></textarea>
+  </label><br/><br/>
+  <button type="submit">Register</button>
+</form>
+{% endblock %}
