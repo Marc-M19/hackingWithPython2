@@ -6,11 +6,11 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # for sessions
 
-# --- CONFIG: change to your MySQL settings ---
+# --- CONFIG:
 DB_CONFIG = {
     "host": "127.0.0.1",
     "user": "root",
-    "password": "mysql",   # change for your local DB
+    "password": "mysql",   
     "database": "hackingdb",
     "port": 3306
 }
@@ -31,7 +31,6 @@ def register():
         username = request.form.get("username", "")[:150]
         password = request.form.get("password", "")  # intentionally plain
         bio = request.form.get("bio", "")[:512]      # 512 char input
-        # Insecure: string formatting used on purpose so you can practice SQLi
         conn = get_db()
         cur = conn.cursor()
         try:
@@ -55,7 +54,6 @@ def login():
         password = request.form.get("password", "")
         conn = get_db()
         cur = conn.cursor(dictionary=True)
-        # insecure: direct string formatting (on purpose)
         cur.execute(f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}' LIMIT 1")
         row = cur.fetchone()
         cur.close()
@@ -74,14 +72,13 @@ def logout():
     session.clear()
     return redirect(url_for("index"))
 
-# --- USERS: shows ALL info about all users (intentionally unsafe) ---
+# USERS: shows ALL info about all users
 @app.route("/users")
 def users():
     if not session.get("user"):
         return redirect(url_for("login"))
     conn = get_db()
     cur = conn.cursor(dictionary=True)
-    # This returns ALL columns for all users. Good for experimenting.
     cur.execute("SELECT * FROM users")
     rows = cur.fetchall()
     cur.close()
@@ -93,14 +90,13 @@ def posts():
     if not session.get("user"):
         return redirect(url_for("login"))
 
-    # POST: einfachen Content speichern (unsicher, plain SQL)
+    # POST: einfachen Content speichern
     if request.method == "POST":
         content = request.form.get("content", "")[:512]  # 512-Limit
         user_id = session["user"]["id"]
         conn = get_db()
         cur = conn.cursor()
         try:
-            # absichtlich unsicher: string formatting → SQLi-Übungsgrundlage
             cur.execute(f"INSERT INTO posts (user_id, content) VALUES ({user_id}, '{content}')")
             conn.commit()
             flash("Post gespeichert.", "success")
@@ -112,14 +108,14 @@ def posts():
             conn.close()
         return redirect(url_for("posts"))
 
-    # GET: alle Posts anzeigen (auch unsicher, simple Join per f-String wäre möglich;
+    # GET: alle Posts anzeigen
     # hier erstmal ohne Join, Username holen wir separat unten)
     conn = get_db()
     cur = conn.cursor(dictionary=True)
     cur.execute("SELECT p.id, p.user_id, p.content, p.created_at FROM posts p ORDER BY p.created_at DESC")
     rows = cur.fetchall()
 
-    # Benutzername pro Post nachladen (sehr simpel/ineffizient – absichtlich)
+    # Benutzername pro Post nachladen
     for r in rows:
         cur.execute(f"SELECT username FROM users WHERE id = {r['user_id']} LIMIT 1")
         u = cur.fetchone()
@@ -141,7 +137,7 @@ def edit_bio(uid):
     if request.method == "POST":
         # Bio aus Formular, 512 Zeichen limit, sehr einfache Escape für '
         bio = request.form.get("bio", "")[:512]
-        bio = bio.replace("'", "''")  # simple escape (still insecure)
+        bio = bio.replace("'", "''")  
         try:
             # Absichtlich unsicher: string formatting (Übungszwecke)
             cur.execute(f"UPDATE users SET bio = '{bio}' WHERE id = {uid}")

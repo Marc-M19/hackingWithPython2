@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-4" style="max-width: 900px;">
-  <h2 class="mb-3">Neuen Content posten</h2>
+  <h2 class="mb-3">Neuen Beitrag posten</h2>
 
   <div class="card mb-4">
     <div class="card-body">
       <form method="post">
         <div class="mb-3">
-          <label class="form-label">Content (max. 512 Zeichen)</label>
+          <label class="form-label">Beitrag</label>
           <textarea name="content" class="form-control" rows="5" maxlength="512" placeholder="Schreibe etwas..."></textarea>
           <div id="cnt" class="text-end small mt-1">0/512</div>
         </div>
