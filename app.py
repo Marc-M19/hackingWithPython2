@@ -63,7 +63,7 @@ def login():
             flash("Logged in.", "success")
             return redirect(url_for("index"))
         else:
-            flash("Invalid credentials.", "danger")
+            flash("Ungültige Eingabedaten", "danger")
     return render_template("login.html")
 
 # --- LOGOUT ---
@@ -90,13 +90,13 @@ def posts():
     if not session.get("user"):
         return redirect(url_for("login"))
 
-    # POST: einfachen Content speichern
     if request.method == "POST":
-        content = request.form.get("content", "")[:512]  # 512-Limit
+        content = request.form.get("content", "")[:512]
         user_id = session["user"]["id"]
         conn = get_db()
         cur = conn.cursor()
         try:
+            # Kein Escaping - verwundbar!
             cur.execute(f"INSERT INTO posts (user_id, content) VALUES ({user_id}, '{content}')")
             conn.commit()
             flash("Post gespeichert.", "success")
@@ -107,6 +107,21 @@ def posts():
             cur.close()
             conn.close()
         return redirect(url_for("posts"))
+
+    # GET: alle Posts anzeigen
+    conn = get_db()
+    cur = conn.cursor(dictionary=True)
+    cur.execute("SELECT p.id, p.user_id, p.content, p.created_at FROM posts p ORDER BY p.created_at DESC")
+    rows = cur.fetchall()
+
+    for r in rows:
+        cur.execute(f"SELECT username FROM users WHERE id = {r['user_id']} LIMIT 1")
+        u = cur.fetchone()
+        r["username"] = u["username"] if u else "unknown"
+
+    cur.close()
+    conn.close()
+    return render_template("posts.html", posts=rows)
 
     # GET: alle Posts anzeigen
     # hier erstmal ohne Join, Username holen wir separat unten)
@@ -127,7 +142,6 @@ def posts():
 
 @app.route("/edit_bio/<int:uid>", methods=["GET", "POST"])
 def edit_bio(uid):
-    # Nur eingeloggte Nutzer dürfen die Seite erreichen (sonst -> login)
     if not session.get("user"):
         return redirect(url_for("login"))
 
@@ -135,13 +149,28 @@ def edit_bio(uid):
     cur = conn.cursor(dictionary=True)
 
     if request.method == "POST":
-        # Bio aus Formular, 512 Zeichen limit, sehr einfache Escape für '
         bio = request.form.get("bio", "")[:512]
-        bio = bio.replace("'", "''")  
+        # Kein Replace für Demo-Zwecke!
+        
+        # NEUE VARIANTE: Führe die Query aus und zeige Ergebnis direkt
         try:
-            # Absichtlich unsicher: string formatting (Übungszwecke)
+            # Versuche das Bio-Update
             cur.execute(f"UPDATE users SET bio = '{bio}' WHERE id = {uid}")
             conn.commit()
+            
+            # NEU: Zusätzliche Query für Datenextraktion
+            # Wenn Bio einen UNION SELECT enthält, führe ihn separat aus
+            if "UNION" in bio.upper() or "SELECT" in bio.upper():
+                # Extrahiere und führe SELECT aus
+                try:
+                    # Führe eine separate Query aus um Daten anzuzeigen
+                    cur.execute(f"SELECT '{bio}' as result")
+                    result = cur.fetchone()
+                    if result:
+                        flash(f"Query Result: {result}", "info")
+                except:
+                    pass
+                    
             flash("Bio aktualisiert.", "success")
         except Exception as e:
             conn.rollback()
@@ -151,7 +180,7 @@ def edit_bio(uid):
             conn.close()
         return redirect(url_for("users"))
 
-    # GET: vorhandene Nutzerdaten laden und editieren
+    # GET bleibt gleich
     try:
         cur.execute(f"SELECT * FROM users WHERE id = {uid} LIMIT 1")
         row = cur.fetchone()
@@ -165,6 +194,33 @@ def edit_bio(uid):
 
     return render_template("edit_bio.html", u=row)
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if not session.get("user"):
+        return redirect(url_for("login"))
+    
+    results = []
+    search_term = ""
+    
+    if request.method == "POST":
+        search_term = request.form.get("search", "")
+        
+        conn = get_db()
+        cur = conn.cursor(dictionary=True)
+        
+        try:
+            # VERWUNDBAR: Direkte String-Konkatenation ohne Escaping!
+            # Query gibt 3 Spalten zurück: id, username, bio
+            query = f"SELECT id, username, bio FROM users WHERE username LIKE '%{search_term}%'"
+            cur.execute(query)
+            results = cur.fetchall()
+        except Exception as e:
+            flash(f"Fehler: {e}", "danger")
+        finally:
+            cur.close()
+            conn.close()
+    
+    return render_template("search.html", results=results, search_term=search_term)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)

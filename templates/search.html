@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-4" style="max-width: 900px;">
+  <h2 class="mb-4">Benutzer Suche</h2>
+  
+  <div class="card mb-4">
+    <div class="card-body">
+      <form method="POST">
+        <div class="mb-3">
+          <label class="form-label">Suche nach Benutzername:</label>
+          <input type="text" name="search" class="form-control" value="{{ search_term }}" placeholder="Gib einen Benutzernamen ein...">
+          <div class="form-text">Sucht nach Benutzern, die den eingegebenen Text enthalten.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Suchen</button>
+      </form>
+    </div>
+  </div>
+
+  {% if results %}
+  <h3 class="mb-3">Suchergebnisse ({{ results|length }} gefunden):</h3>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Benutzername</th>
+          <th>Bio</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in results %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td style="white-space: pre-wrap;">{{ user.bio }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% elif search_term %}
+  <div class="alert alert-info">Keine Benutzer gefunden.</div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+SELECT * FROM users WHERE username = 'marc'--' AND password = '{password}' LIMIT 1"
