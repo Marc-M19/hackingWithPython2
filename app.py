@@ -34,7 +34,9 @@ def register():
         conn = get_db()
         cur = conn.cursor()
         try:
-            cur.execute(f"INSERT INTO users (username, password, bio) VALUES ('{username}','{password}','{bio}')")
+            # SICHER: Prepared Statement statt String-Concatenation
+            cur.execute("INSERT INTO users (username, password, bio) VALUES (%s, %s, %s)",
+                       (username, password, bio))
             conn.commit()
             flash("Registered. You can now log in.", "success")
             return redirect(url_for("login"))
@@ -54,7 +56,9 @@ def login():
         password = request.form.get("password", "")
         conn = get_db()
         cur = conn.cursor(dictionary=True)
-        cur.execute(f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}' LIMIT 1")
+        # SICHER: Prepared Statement verhindert SQL Injection
+        cur.execute("SELECT * FROM users WHERE username = %s AND password = %s LIMIT 1",
+                   (username, password))
         row = cur.fetchone()
         cur.close()
         conn.close()
@@ -96,8 +100,9 @@ def posts():
         conn = get_db()
         cur = conn.cursor()
         try:
-            # Kein Escaping - verwundbar!
-            cur.execute(f"INSERT INTO posts (user_id, content) VALUES ({user_id}, '{content}')")
+            # SICHER: Prepared Statement
+            cur.execute("INSERT INTO posts (user_id, content) VALUES (%s, %s)",
+                       (user_id, content))
             conn.commit()
             flash("Post gespeichert.", "success")
         except Exception as e:
@@ -115,24 +120,8 @@ def posts():
     rows = cur.fetchall()
 
     for r in rows:
-        cur.execute(f"SELECT username FROM users WHERE id = {r['user_id']} LIMIT 1")
-        u = cur.fetchone()
-        r["username"] = u["username"] if u else "unknown"
-
-    cur.close()
-    conn.close()
-    return render_template("posts.html", posts=rows)
-
-    # GET: alle Posts anzeigen
-    # hier erstmal ohne Join, Username holen wir separat unten)
-    conn = get_db()
-    cur = conn.cursor(dictionary=True)
-    cur.execute("SELECT p.id, p.user_id, p.content, p.created_at FROM posts p ORDER BY p.created_at DESC")
-    rows = cur.fetchall()
-
-    # Benutzername pro Post nachladen
-    for r in rows:
-        cur.execute(f"SELECT username FROM users WHERE id = {r['user_id']} LIMIT 1")
+        # SICHER: Prepared Statement
+        cur.execute("SELECT username FROM users WHERE id = %s LIMIT 1", (r['user_id'],))
         u = cur.fetchone()
         r["username"] = u["username"] if u else "unknown"
 
@@ -150,27 +139,11 @@ def edit_bio(uid):
 
     if request.method == "POST":
         bio = request.form.get("bio", "")[:512]
-        # Kein Replace für Demo-Zwecke!
-        
-        # NEUE VARIANTE: Führe die Query aus und zeige Ergebnis direkt
+
         try:
-            # Versuche das Bio-Update
-            cur.execute(f"UPDATE users SET bio = '{bio}' WHERE id = {uid}")
+            # SICHER: Prepared Statement verhindert SQL Injection
+            cur.execute("UPDATE users SET bio = %s WHERE id = %s", (bio, uid))
             conn.commit()
-            
-            # NEU: Zusätzliche Query für Datenextraktion
-            # Wenn Bio einen UNION SELECT enthält, führe ihn separat aus
-            if "UNION" in bio.upper() or "SELECT" in bio.upper():
-                # Extrahiere und führe SELECT aus
-                try:
-                    # Führe eine separate Query aus um Daten anzuzeigen
-                    cur.execute(f"SELECT '{bio}' as result")
-                    result = cur.fetchone()
-                    if result:
-                        flash(f"Query Result: {result}", "info")
-                except:
-                    pass
-                    
             flash("Bio aktualisiert.", "success")
         except Exception as e:
             conn.rollback()
@@ -180,9 +153,10 @@ def edit_bio(uid):
             conn.close()
         return redirect(url_for("users"))
 
-    # GET bleibt gleich
+    # GET: User-Daten laden
     try:
-        cur.execute(f"SELECT * FROM users WHERE id = {uid} LIMIT 1")
+        # SICHER: Prepared Statement
+        cur.execute("SELECT * FROM users WHERE id = %s LIMIT 1", (uid,))
         row = cur.fetchone()
     finally:
         cur.close()
@@ -209,10 +183,10 @@ def search():
         cur = conn.cursor(dictionary=True)
         
         try:
-            # VERWUNDBAR: Direkte String-Konkatenation ohne Escaping!
+            # SICHER: Prepared Statement mit LIKE-Pattern
             # Query gibt 3 Spalten zurück: id, username, bio
-            query = f"SELECT id, username, bio FROM users WHERE username LIKE '%{search_term}%'"
-            cur.execute(query)
+            search_pattern = f"%{search_term}%"
+            cur.execute("SELECT id, username, bio FROM users WHERE username LIKE %s", (search_pattern,))
             results = cur.fetchall()
         except Exception as e:
             flash(f"Fehler: {e}", "danger")

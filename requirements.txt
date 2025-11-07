@@ -1,2 +1,6 @@
 Flask>=2.0
 mysql-connector-python>=8.0
+
+# Bruteforce Tools
+selenium>=4.0
+webdriver-manager>=4.0
