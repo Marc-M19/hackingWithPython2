@@ -26,7 +26,7 @@ from datetime import datetime
 # KONFIGURATION
 # ============================================
 TARGET_URL = "http://127.0.0.1:5001/login"
-USERNAME = "admin"                      # Zu testender Benutzername
+USERNAME = "marc"                      # Zu testender Benutzername
 PASSWORD_FILE = "passwords.txt"         # Passwortliste
 FAIL_STRING = "Ungültige Eingabedaten"  # Fehlermeldung bei falschem Login
 DELAY = 0.1                             # Sekunden zwischen Versuchen (0.1 = schnell)

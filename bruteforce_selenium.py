@@ -26,7 +26,7 @@ import time
 # KONFIGURATION
 # ============================================
 TARGET_URL = "http://127.0.0.1:5001/login"
-USERNAME = "admin"                      # Zu testender Benutzername
+USERNAME = "marc"                      # Zu testender Benutzername
 PASSWORD_FILE = "passwords.txt"         # Passwortliste
 HEADLESS = False                        # True = Unsichtbar, False = Browser sichtbar
 DELAY = 0.5                             # Sekunden zwischen Versuchen (Rate Limiting)
@@ -132,6 +132,8 @@ def main():
     print("[+] Starte Chrome WebDriver...")
     driver = setup_driver(headless=HEADLESS)
 
+    success = False  # Flag für erfolgreichen Login
+
     try:
         # Durch alle Passwörter iterieren
         for i, password in enumerate(passwords, 1):
@@ -152,6 +154,12 @@ def main():
                 # Optional: Screenshot vom Erfolg
                 driver.save_screenshot("login_success.png")
                 print("[+] Screenshot gespeichert: login_success.png")
+                print()
+                print("[+] Browser bleibt geöffnet - Du kannst dich jetzt im Browser umsehen!")
+                print("[+] Drücke Strg+C um das Skript zu beenden und den Browser zu schließen.")
+
+                # Browser offen lassen - auf Benutzerinteraktion warten
+                input("\n[>] Drücke Enter um den Browser zu schließen...")
 
                 break
             else:
@@ -167,11 +175,12 @@ def main():
             print("=" * 50)
 
     finally:
-        # Browser schließen
         print()
-        print("[+] Schließe Browser...")
+        if success:
+            print("[+] Super, du hast das Passwort gefunden!")
+        else:
+            print("[+] Schließe Browser...")
         driver.quit()
-        print("[+] Fertig!")
 
 # ============================================
 # START
