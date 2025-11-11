@@ -26,10 +26,10 @@ import time
 # KONFIGURATION
 # ============================================
 TARGET_URL = "http://127.0.0.1:5001/login"
-USERNAME = "marc"                      # Zu testender Benutzername
-PASSWORD_FILE = "passwords.txt"         # Passwortliste
-HEADLESS = False                        # True = Unsichtbar, False = Browser sichtbar
-DELAY = 0.5                             # Sekunden zwischen Versuchen (Rate Limiting)
+USERNAME = "marc"                      
+PASSWORD_FILE = "passwords.txt"         
+HEADLESS = False                        
+DELAY = 0.5                             
 
 # ============================================
 # SELENIUM SETUP
