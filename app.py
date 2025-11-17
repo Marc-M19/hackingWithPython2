@@ -1,10 +1,20 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 import mysql.connector
 import os
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # for sessions
+
+# BRUTE-FORCE SCHUTZ: Rate Limiting
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri="memory://"
+)
 
 # --- CONFIG:
 DB_CONFIG = {
@@ -26,6 +36,7 @@ def index():
 
 # --- REGISTER ---
 @app.route("/register", methods=["GET","POST"])
+# @limiter.limit("3 per minute")  # Max 3 Registrierungen pro Minute
 def register():
     if request.method == "POST":
         username = request.form.get("username", "")[:150]
@@ -50,6 +61,7 @@ def register():
 
 # --- LOGIN ---
 @app.route("/login", methods=["GET","POST"])
+# @limiter.limit("5 per minute")  # Max 5 Login-Versuche pro Minute (Brute-Force Schutz)
 def login():
     if request.method == "POST":
         username = request.form.get("username", "")

