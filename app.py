@@ -20,7 +20,7 @@ limiter = Limiter(
 DB_CONFIG = {
     "host": "127.0.0.1",
     "user": "root",
-    "password": "mysql",   
+    #"password": "mysql",   
     "database": "hackingdb",
     "port": 3306
 }
