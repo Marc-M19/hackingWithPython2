@@ -8,13 +8,13 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # for sessions
 
-# BRUTE-FORCE SCHUTZ: Rate Limiting
-limiter = Limiter(
-    get_remote_address,
-    app=app,
-    default_limits=["200 per day", "50 per hour"],
-    storage_uri="memory://"
-)
+# BRUTE-FORCE SCHUTZ: Rate Limiting (auskommentiert für Tests)
+# limiter = Limiter(
+#     get_remote_address,
+#     app=app,
+#     default_limits=["200 per day", "50 per hour"],
+#     storage_uri="memory://"
+# )
 
 # --- CONFIG:
 DB_CONFIG = {
