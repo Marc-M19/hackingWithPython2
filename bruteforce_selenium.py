@@ -25,8 +25,8 @@ import time
 # ============================================
 # KONFIGURATION
 # ============================================
-TARGET_URL = "http://127.0.0.1:5001/login"  # Lokaler Server (vorher: 141.87.56.41)
-USERNAME = "Stillelu"  # Passwort ist "12345" (in passwords.txt vorhanden)                      
+TARGET_URL = "http://141.87.56.31:5001/login"  # Lokaler Server (vorher: 141.87.56.41)
+USERNAME = "Trader123"  # Passwort ist "12345" (in passwords.txt vorhanden)                      
 PASSWORD_FILE = "passwords.txt"
 HEADLESS = False                        
 DELAY = 0.5                             

