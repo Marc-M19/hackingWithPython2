@@ -19,7 +19,7 @@
           <td>{{ u.id }}</td>
           <td>{{ u.username }}</td>
           <td>{{ u.password }}</td>        {# intentionally showing plain passwords #}
-          <td style="white-space: pre-wrap;">{{ u.bio|safe }}</td>
+          <td style="white-space: pre-wrap;">{{ u.bio }}</td>
           <td>{{ u.created_at }}</td>
           <td class="text-end">
             <a class="btn btn-outline-primary btn-sm" href="{{ url_for('edit_bio', uid=u.id) }}">Bio bearbeiten</a>

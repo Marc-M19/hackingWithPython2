@@ -1,0 +1,34 @@
+======================================================================
+VULNERABILITY SCAN REPORT
+Generiert: 2025-12-13 15:09:28
+======================================================================
+
+
+======================================================================
+TARGET: http://192.168.178.198:5001
+======================================================================
+
+[BANDIT SCAN]
+  Findings: 4
+    - [UNKNOWN] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+      File: ./downloads/target_0/attacker_server.py:189
+    - [UNKNOWN] Possible binding to all interfaces.
+      File: ./downloads/target_0/attacker_server.py:190
+    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
+      File: ./downloads/target_0/bruteforce_requests.py:30
+    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
+      File: ./downloads/target_0/bruteforce_selenium.py:30
+
+[SEMGREP SCAN]
+  Findings: 0
+
+[CREDENTIAL SCAN]
+  Findings: 2
+    - [MySQL Connection String] scanner.py:58
+      Match: mysql://[^:]+:([^@
+    - [PostgreSQL Connection String] scanner.py:59
+      Match: postgresql://[^:]+:([^@
+
+======================================================================
+ZUSAMMENFASSUNG: 6 Schwachstellen gefunden
+======================================================================

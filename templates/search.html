@@ -8,7 +8,7 @@
       <form method="POST">
         <div class="mb-3">
           <label class="form-label">Suche nach Benutzername:</label>
-          <input type="text" name="search" class="form-control" value="{{ search_term|safe }}" placeholder="Gib einen Benutzernamen ein...">
+          <input type="text" name="search" class="form-control" value="{{ search_term }}" placeholder="Gib einen Benutzernamen ein...">
           <div class="form-text">Sucht nach Benutzern, die den eingegebenen Text enthalten.</div>
         </div>
         <button type="submit" class="btn btn-primary">Suchen</button>
@@ -32,7 +32,7 @@
         <tr>
           <td>{{ user.id }}</td>
           <td>{{ user.username }}</td>
-          <td style="white-space: pre-wrap;">{{ user.bio|safe }}</td>
+          <td style="white-space: pre-wrap;">{{ user.bio }}</td>
         </tr>
         {% endfor %}
       </tbody>

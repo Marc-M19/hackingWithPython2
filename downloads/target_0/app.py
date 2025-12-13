@@ -12,7 +12,7 @@ app.secret_key = os.urandom(24)  # for sessions
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = None
 
-# BRUTE-FORCE SCHUTZ: Rate Limiting (auskommentiert für Tests)
+# BRUTE-FORCE SCHUTZ: Rate Limiting (auskommentiert fÃ¼r Tests)
 # limiter = Limiter(
 #     get_remote_address,
 #     app=app,
@@ -83,7 +83,7 @@ def login():
             flash("Logged in.", "success")
             return redirect(url_for("index"))
         else:
-            flash("Ungültige Eingabedaten", "danger")
+            flash("UngÃ¼ltige Eingabedaten", "danger")
     return render_template("login.html")
 
 # --- LOGOUT ---
@@ -200,7 +200,7 @@ def search():
         
         try:
             # SICHER: Prepared Statement mit LIKE-Pattern
-            # Query gibt 3 Spalten zurück: id, username, bio
+            # Query gibt 3 Spalten zurÃ¼ck: id, username, bio
             search_pattern = f"%{search_term}%"
             cur.execute("SELECT id, username, bio FROM users WHERE username LIKE %s", (search_pattern,))
             results = cur.fetchall()
@@ -245,7 +245,7 @@ def log_keys():
 
     return "", 200
 
-# --- SOURCE CODE ENDPOINT (für Scanner-Demo) ---
+# --- SOURCE CODE ENDPOINT (fÃ¼r Scanner-Demo) ---
 @app.route("/source")
 def source_listing():
     """Zeigt alle Python-Dateien im Projektverzeichnis an (Directory Listing)"""
@@ -254,23 +254,4 @@ def source_listing():
     html = "<h1>Index of /source</h1><hr><pre>\n"
     for f in sorted(py_files):
         html += f'<a href="/source/{f}">{f}</a>\n'
-    html += "</pre><hr>"
-    return html
-
-@app.route("/source/<filename>")
-def source_file(filename):
-    """Gibt den Inhalt einer Python-Datei zurück"""
-    import os
-    # Sicherheitscheck: nur .py Dateien im aktuellen Verzeichnis
-    if not filename.endswith('.py') or '/' in filename or '\\' in filename:
-        return "Nicht erlaubt", 403
-
-    filepath = os.path.join(os.path.dirname(__file__) or '.', filename)
-    if os.path.exists(filepath):
-        with open(filepath, 'r') as f:
-            content = f.read()
-        return f"<pre>{content}</pre>", 200, {'Content-Type': 'text/html'}
-    return "Datei nicht gefunden", 404
-
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5001, threaded=True)
+    html += "
