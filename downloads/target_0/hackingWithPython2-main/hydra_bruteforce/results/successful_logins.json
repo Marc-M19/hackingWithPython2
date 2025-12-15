@@ -1,0 +1,906 @@
+{
+  "metadata": {
+    "analyzer": "HydraResultsAnalyzer",
+    "timestamp": "2025-12-02T08:25:02.025498",
+    "source_file": "/Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/hydra_bruteforce/results/hydra_output.txt",
+    "target": "http://127.0.0.1:5001/login"
+  },
+  "statistics": {
+    "total_attempts": 0,
+    "successful_logins": 111,
+    "failed_attempts": 0,
+    "start_time": null,
+    "end_time": null,
+    "duration_seconds": 0
+  },
+  "successful_logins": [
+    {
+      "username": "test",
+      "password": "12345678",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025287",
+      "verified": false
+    },
+    {
+      "username": "admin",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025296",
+      "verified": false
+    },
+    {
+      "username": "admin",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025297",
+      "verified": false
+    },
+    {
+      "username": "admin",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025299",
+      "verified": false
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025300",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025301",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025302",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025305",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025306",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025309",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025310",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025311",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025312",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025313",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025314",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025315",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025316",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025317",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025318",
+      "verified": false
+    },
+    {
+      "username": "charlie",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025319",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025320",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025321",
+      "verified": false
+    },
+    {
+      "username": "charlie",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025322",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025323",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025324",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025325",
+      "verified": false
+    },
+    {
+      "username": "guest",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025326",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025327",
+      "verified": false
+    },
+    {
+      "username": "guest",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025328",
+      "verified": false
+    },
+    {
+      "username": "guest",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025329",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025330",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025331",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025332",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025333",
+      "verified": false
+    },
+    {
+      "username": "trader",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025334",
+      "verified": false
+    },
+    {
+      "username": "trader",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025335",
+      "verified": false
+    },
+    {
+      "username": "trader",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025336",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025337",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025338",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025339",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025340",
+      "verified": false
+    },
+    {
+      "username": "author",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025341",
+      "verified": false
+    },
+    {
+      "username": "author",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025342",
+      "verified": false
+    },
+    {
+      "username": "author",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025343",
+      "verified": false
+    },
+    {
+      "username": "author",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025344",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025345",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025346",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025347",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025348",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025349",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025350",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025351",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "test",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025352",
+      "verified": false
+    },
+    {
+      "username": "Marc",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025353",
+      "verified": false
+    },
+    {
+      "username": "Marc",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025354",
+      "verified": false
+    },
+    {
+      "username": "Marc",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025355",
+      "verified": false
+    },
+    {
+      "username": "admin",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025356",
+      "verified": false
+    },
+    {
+      "username": "Marc",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025357",
+      "verified": false
+    },
+    {
+      "username": "admin",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025358",
+      "verified": false
+    },
+    {
+      "username": "admin",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025359",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025360",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025361",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025362",
+      "verified": false
+    },
+    {
+      "username": "test",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025363",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025364",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025365",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025366",
+      "verified": false
+    },
+    {
+      "username": "user",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025367",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025368",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025369",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025370",
+      "verified": false
+    },
+    {
+      "username": "alice",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025371",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025372",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025373",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025374",
+      "verified": false
+    },
+    {
+      "username": "bob",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025375",
+      "verified": false
+    },
+    {
+      "username": "charlie",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025376",
+      "verified": false
+    },
+    {
+      "username": "charlie",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025377",
+      "verified": false
+    },
+    {
+      "username": "charlie",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025378",
+      "verified": false
+    },
+    {
+      "username": "charlie",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025379",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025380",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025381",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025382",
+      "verified": false
+    },
+    {
+      "username": "demo",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025383",
+      "verified": false
+    },
+    {
+      "username": "guest",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025384",
+      "verified": false
+    },
+    {
+      "username": "guest",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025385",
+      "verified": false
+    },
+    {
+      "username": "guest",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025386",
+      "verified": false
+    },
+    {
+      "username": "guest",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025388",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025389",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025390",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025392",
+      "verified": false
+    },
+    {
+      "username": "root",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025393",
+      "verified": false
+    },
+    {
+      "username": "trader",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025394",
+      "verified": false
+    },
+    {
+      "username": "trader",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025395",
+      "verified": false
+    },
+    {
+      "username": "trader",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025396",
+      "verified": false
+    },
+    {
+      "username": "trader",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025397",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025398",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025399",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025400",
+      "verified": false
+    },
+    {
+      "username": "author",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025401",
+      "verified": false
+    },
+    {
+      "username": "author",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025402",
+      "verified": false
+    },
+    {
+      "username": "analyst",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025403",
+      "verified": false
+    },
+    {
+      "username": "author",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025404",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025405",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025406",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025407",
+      "verified": false
+    },
+    {
+      "username": "hebeln",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025408",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "marc1234",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025409",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "password",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025410",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "123456",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025412",
+      "verified": false
+    },
+    {
+      "username": "kopf",
+      "password": "admin",
+      "port": "5001",
+      "protocol": "http-post-form",
+      "timestamp": "2025-12-02T08:25:02.025413",
+      "verified": false
+    }
+  ]
+}

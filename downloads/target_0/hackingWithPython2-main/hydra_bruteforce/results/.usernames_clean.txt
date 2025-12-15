@@ -1,0 +1,15 @@
+Marc
+admin
+test
+user
+alice
+bob
+charlie
+demo
+guest
+root
+trader
+analyst
+author
+hebeln
+kopf

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hebeln Mit Kopf - Deine tägliche Börsenanalyse{% endblock %}</title>
+    <meta name="description" content="Tägliche Börsenanalysen und Markteinblicke für smarte Investoren">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="{{ url_for('index') }}" class="logo">
+          <span class="logo-icon">📈</span>
+          <span>Hebeln Mit Kopf</span>
+        </a>
+        <nav>
+          <a href="{{ url_for('index') }}">Home</a>
+          {% if session.user %}
+            <a href="{{ url_for('users') }}">Marktanalysen</a>
+            <a href="{{ url_for('search') }}">Suche</a>
+            <a href="{{ url_for('logout') }}">Logout ({{ session.user.username }})</a>
+          {% else %}
+            <a href="{{ url_for('login') }}">Autor Login</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-messages">
+            {% for cat, msg in messages %}
+              <div class="flash {{ cat }}">
+                {% if cat == 'success' %}✓{% elif cat == 'danger' %}✗{% else %}ℹ{% endif %}
+                {{ msg }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <strong>Hebeln Mit Kopf</strong> © 2025
+        </div>
+        <div class="footer-links">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">Kontakt</a>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p><strong>Disclaimer:</strong> Keine Anlageberatung. Alle Inhalte dienen ausschließlich der Information und Bildung.
+        Investitionen in Wertpapiere sind mit Risiken verbunden.</p>
+      </div>
+    </footer>
+  </body>
+</html>

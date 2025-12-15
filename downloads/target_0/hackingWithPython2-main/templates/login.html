@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Autor Login - Hebeln Mit Kopf{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 500px; margin: 2rem auto;">
+  <div class="card-header">
+    <h2 class="card-title">🔐 Autor Login</h2>
+  </div>
+  <p class="text-muted" style="margin-bottom: 2rem;">Melde dich an, um Marktanalysen zu erstellen und zu veröffentlichen.</p>
+
+  <form method="post">
+    <div>
+      <label for="username">Benutzername</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Dein Autor-Name"
+        required
+        autocomplete="username"
+      >
+    </div>
+
+    <div>
+      <label for="password">Passwort</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="••••••••"
+        required
+        autocomplete="current-password"
+      >
+    </div>
+
+    <button type="submit" style="width: 100%; margin-top: 1rem;">Anmelden</button>
+  </form>
+
+  <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+    <p class="text-muted">Noch kein Autor-Account?</p>
+    <a href="{{ url_for('register') }}" class="btn btn-secondary" style="margin-top: 0.5rem;">Jetzt registrieren</a>
+  </div>
+</div>
+
+<div class="card" style="max-width: 500px; margin: 2rem auto; background: var(--light-blue);">
+  <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">ℹ️ Hinweis</h3>
+  <p style="margin-bottom: 0; font-size: 0.9rem;">Dieser Bereich ist ausschließlich für registrierte Autoren und Analysten zugänglich.</p>
+</div>
+{% endblock %}

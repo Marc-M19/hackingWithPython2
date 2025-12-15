@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}Suche - Hebeln Mit Kopf{% endblock %}
+
+{% block content %}
+<div class="search-container">
+  <div class="search-header">
+    <h1>🔍 Autoren-Suche</h1>
+    <p class="subtitle">Suche nach Autoren und deren Trading-Fokus</p>
+  </div>
+
+  <div class="search-box">
+    <form method="get" action="{{ url_for('search') }}">
+      <div class="search-input-group">
+        <input
+          type="text"
+          name="q"
+          value="{{ query|safe }}"
+          placeholder="Suche nach Autor oder Trading-Fokus..."
+          class="search-input"
+        />
+        <button type="submit" class="search-button">Suchen</button>
+      </div>
+    </form>
+  </div>
+
+  {% if error %}
+  <div class="error-box">
+    <strong>SQL Fehler:</strong>
+    <pre>{{ error }}</pre>
+  </div>
+  {% endif %}
+
+  {% if query %}
+  <div class="results-section">
+    <h2>Suchergebnisse für: "{{ query|safe }}"</h2>
+
+    {% if results %}
+    <div class="results-grid">
+      {% for result in results %}
+      <div class="result-card">
+        <div class="result-header">
+          <span class="result-id">#{{ result.id }}</span>
+          <h3>{{ result.username }}</h3>
+        </div>
+        <div class="result-body">
+          <p>{{ (result.bio|safe) or '(Keine Beschreibung)' }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-results">
+      <p>Keine Ergebnisse gefunden.</p>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+<style>
+.search-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.search-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-header h1 {
+  color: #1a73e8;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.search-box {
+  margin-bottom: 2rem;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1a73e8;
+}
+
+.search-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-button:hover {
+  background: #1557b0;
+}
+
+.error-box {
+  background: #ffe6e6;
+  border: 2px solid #ff4444;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.error-box pre {
+  margin: 0.5rem 0 0 0;
+  color: #cc0000;
+  overflow-x: auto;
+}
+
+.results-section h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.result-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.result-id {
+  background: #1a73e8;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.result-header h3 {
+  margin: 0;
+  color: #1a73e8;
+}
+
+.result-body p {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.info-box {
+  background: #fff9e6;
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.info-box h3 {
+  color: #f57c00;
+  margin-top: 0;
+}
+
+.info-box ul {
+  margin: 1rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.info-box li {
+  margin-bottom: 0.5rem;
+}
+
+.info-box code {
+  background: #f5f5f5;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: #d32f2f;
+  font-size: 0.9rem;
+}
+</style>
+{% endblock %}

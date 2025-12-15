@@ -1,0 +1,50 @@
+# Username-Wörterbuch für Brute-Force-Tests
+# Zeilen mit # sind Kommentare und werden ignoriert
+
+# Standard-Benutzernamen
+Marc
+administrator
+Marc
+root
+user
+test
+guest
+
+# Häufige Namen
+hans
+peter
+marie
+anna
+max
+lisa
+
+# Trading/Finanzen-spezifische Namen
+trader
+analyst
+investor
+broker
+finanzexperte
+marktanalyst
+aktienprofi
+hebelexperte
+Trader123
+
+# Variationen
+Admin
+Administrator
+Test123
+testuser
+demo
+demouser
+
+# Email-basiert
+admin@localhost
+test@test.com
+user@localhost
+
+# Weitere häufige Benutzernamen
+webmaster
+support
+info
+contact
+sales

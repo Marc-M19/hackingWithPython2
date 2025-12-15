@@ -1,0 +1,71 @@
+{
+  "target": {
+    "app_url": "http://192.168.1.188:5001",
+    "register_endpoint": "/register",
+    "login_endpoint": "/login",
+    "users_endpoint": "/users",
+    "vulnerable_parameters": {
+      "bio_field": "bio",
+      "search_query": "q"
+    }
+  },
+  "keylogger_server": {
+    "host": "0.0.0.0",
+    "port": 8889,
+    "endpoint": "/log",
+    "log_file": "results/keylogger_log.txt",
+    "keystrokes_output": "results/captured_keystrokes.json",
+    "batch_size": 10,
+    "flush_interval": 5
+  },
+  "capture_settings": {
+    "capture_mode": "all",
+    "target_fields": ["password", "username", "bio", "search"],
+    "capture_paste": true,
+    "capture_context": true,
+    "send_interval_ms": 2000,
+    "buffer_size": 50
+  },
+  "attack_settings": {
+    "injection_method": "stored",
+    "payload_type": "full",
+    "attacker_username": "keylog_attacker",
+    "attacker_password": "evil123",
+    "obfuscate": false,
+    "auto_cleanup": false
+  },
+  "_comments": {
+    "target": "Ziel-Webseite Konfiguration",
+    "app_url": "Basis-URL der Flask-Anwendung",
+    "register_endpoint": "Registrierungs-Endpoint zum Injizieren von Keylogger",
+    "keylogger_server": "Keylogger Server Konfiguration",
+    "host": "Server Hostname (localhost für lokales Testing)",
+    "port": "Server Port (8889 für Keylogger - unterschiedlich von Cookie-Stealer 8888)",
+    "endpoint": "Endpoint zum Empfangen von Keystrokes",
+    "log_file": "Pfad zur TXT-Log-Datei für Keystrokes",
+    "keystrokes_output": "Pfad zur JSON-Datei mit captured Keystrokes",
+    "batch_size": "Anzahl Keystrokes vor automatischem Speichern",
+    "flush_interval": "Interval in Sekunden für automatisches Speichern",
+    "capture_settings": "Einstellungen für Keystroke-Capture",
+    "capture_mode": "Modus: 'all' (alle Keys), 'passwords' (nur Password-Felder), 'targeted' (spezifische Felder)",
+    "target_fields": "Liste von Feld-Namen die geloggt werden sollen",
+    "capture_paste": "Auch Paste-Events (Strg+V) erfassen",
+    "capture_context": "Page-URL und Field-Context mitloggen",
+    "send_interval_ms": "Interval in Millisekunden für Batch-Senden an Server",
+    "buffer_size": "Maximale Anzahl Keys im Client-Buffer vor Senden"
+  },
+  "notes": {
+    "description": "XSS Keylogger Attack Framework",
+    "target_app": "Hebeln Mit Kopf - Vulnerable Flask Demo Application",
+    "attack_type": "Cross-Site Scripting (XSS) - Keystroke Logging",
+    "data_captured": [
+      "Alle Tastatureingaben",
+      "Password-Feld Eingaben",
+      "Form-Submissions",
+      "Paste-Events"
+    ],
+    "legal_notice": "NUR für autorisierte Penetrationstests verwenden!",
+    "educational_purpose": ".",
+    "privacy_warning": "."
+  }
+}

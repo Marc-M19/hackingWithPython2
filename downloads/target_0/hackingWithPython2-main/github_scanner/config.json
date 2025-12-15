@@ -1,0 +1,21 @@
+{
+  "repos": [
+    "https://github.com/Gandalss/Hacking_with_python_2",
+    "https://github.com/KOLLEGE2/REPO2",
+    "https://github.com/KOLLEGE3/REPO3",
+    "https://github.com/KOLLEGE4/REPO4",
+    "https://github.com/KOLLEGE5/REPO5"
+  ],
+  "selenium": {
+    "browser": "chrome",
+    "headless": true,
+    "timeout": 30
+  },
+  "file_extensions": [".py", ".json", ".env", ".yml", ".yaml", ".sql", ".txt", ".cfg", ".ini", ".conf"],
+  "output_dir": "results",
+  "scanners": {
+    "bandit": true,
+    "semgrep": true,
+    "safety": true
+  }
+}

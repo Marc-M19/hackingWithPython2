@@ -1,34 +1,89 @@
 ======================================================================
 VULNERABILITY SCAN REPORT
-Generiert: 2025-12-13 15:09:28
+Generiert: 2025-12-15 17:32:11
 ======================================================================
 
 
 ======================================================================
-TARGET: http://192.168.178.198:5001
+TARGET: https://github.com/Gandalss/Hacking_with_python_2
 ======================================================================
 
 [BANDIT SCAN]
-  Findings: 4
+  Findings: 66
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_0/hackingWithPython2-main/app.py:79
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_0/hackingWithPython2-main/app.py:96
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_0/hackingWithPython2-main/app.py:163
     - [UNKNOWN] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
-      File: ./downloads/target_0/attacker_server.py:189
+      File: ./downloads/target_0/hackingWithPython2-main/app.py:256
     - [UNKNOWN] Possible binding to all interfaces.
-      File: ./downloads/target_0/attacker_server.py:190
-    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
-      File: ./downloads/target_0/bruteforce_requests.py:30
-    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
-      File: ./downloads/target_0/bruteforce_selenium.py:30
+      File: ./downloads/target_0/hackingWithPython2-main/app.py:256
+    - [UNKNOWN] Consider possible security implications associated with the subprocess module.
+      File: ./downloads/target_0/hackingWithPython2-main/github_scanner/github_scanner.py:18
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_0/hackingWithPython2-main/github_scanner/github_scanner.py:111
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_0/hackingWithPython2-main/github_scanner/github_scanner.py:143
+    - [UNKNOWN] Try, Except, Continue detected.
+      File: ./downloads/target_0/hackingWithPython2-main/github_scanner/github_scanner.py:361
+    - [UNKNOWN] subprocess call - check for execution of untrusted input.
+      File: ./downloads/target_0/hackingWithPython2-main/github_scanner/github_scanner.py:393
 
-[SEMGREP SCAN]
+[SAFETY SCAN - Vulnerable Dependencies]
   Findings: 0
 
 [CREDENTIAL SCAN]
-  Findings: 2
+  Findings: 0
+
+======================================================================
+TARGET: https://github.com/Marc-M19/hackingWithPython2
+======================================================================
+
+[BANDIT SCAN]
+  Findings: 14
+    - [UNKNOWN] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+      File: ./downloads/target_1/app.py:276
+    - [UNKNOWN] Possible binding to all interfaces.
+      File: ./downloads/target_1/app.py:276
+    - [UNKNOWN] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+      File: ./downloads/target_1/attacker_server.py:189
+    - [UNKNOWN] Possible binding to all interfaces.
+      File: ./downloads/target_1/attacker_server.py:190
+    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
+      File: ./downloads/target_1/bruteforce_requests.py:30
+    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
+      File: ./downloads/target_1/bruteforce_selenium.py:30
+    - [UNKNOWN] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+      File: ./downloads/target_1/downloads/target_0/attacker_server.py:189
+    - [UNKNOWN] Possible binding to all interfaces.
+      File: ./downloads/target_1/downloads/target_0/attacker_server.py:190
+    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
+      File: ./downloads/target_1/downloads/target_0/bruteforce_requests.py:30
+    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
+      File: ./downloads/target_1/downloads/target_0/bruteforce_selenium.py:30
+
+[SAFETY SCAN - Vulnerable Dependencies]
+  Findings: 0
+
+[CREDENTIAL SCAN]
+  Findings: 7
+    - [Hardcoded Password] test.sql:1
+      Match: password = '{password}'
     - [MySQL Connection String] scanner.py:58
       Match: mysql://[^:]+:([^@
     - [PostgreSQL Connection String] scanner.py:59
       Match: postgresql://[^:]+:([^@
+    - [Hardcoded Password] scan_report.txt:17
+      Match: password: 'passwords.txt'
+    - [Hardcoded Password] scan_report.txt:19
+      Match: password: 'passwords.txt'
+    - [MySQL Connection String] scan_report.txt:28
+      Match: mysql://[^:]+:([^@
+    - [PostgreSQL Connection String] scan_report.txt:30
+      Match: postgresql://[^:]+:([^@
 
 ======================================================================
-ZUSAMMENFASSUNG: 6 Schwachstellen gefunden
+ZUSAMMENFASSUNG: 87 Schwachstellen gefunden
 ======================================================================

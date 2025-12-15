@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "server": "CookieStealerServer",
+    "timestamp": "2025-12-09T07:59:19.405255",
+    "version": "1.0"
+  },
+  "stolen_cookies": [
+    {
+      "timestamp": "2025-12-09T07:59:19.402592",
+      "cookie": "session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aTfInQ.uSxW3mTDHcqjziSHl7Drnyq6rhY",
+      "parsed_session": {
+        "success": true,
+        "raw": "{\"user\":{\"id\":1,\"username\":\"marc\"}}",
+        "user_id": 1,
+        "username": "marc",
+        "full_session": {
+          "user": {
+            "id": 1,
+            "username": "marc"
+          }
+        }
+      },
+      "ip": "192.168.1.145",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15",
+      "referer": "http://192.168.1.188:5001/",
+      "method": "GET"
+    }
+  ],
+  "statistics": {
+    "total_stolen": 1,
+    "unique_ips": 1
+  }
+}

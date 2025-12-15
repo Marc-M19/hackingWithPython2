@@ -1,0 +1,16 @@
+{
+  "urls": [
+    "http://192.168.1.145:5001/"
+  ],
+  "selenium": {
+    "browser": "chrome",
+    "headless": true,
+    "timeout": 30
+  },
+  "scanners": {
+    "bandit": true,
+    "semgrep": true,
+    "safety": true
+  },
+  "output_dir": "results"
+}

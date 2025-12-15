@@ -6,7 +6,7 @@ Verwendung: python scanner.py
 Ablauf:
 1. Besucht alle URLs in TARGET_URLS mit Selenium (headless)
 2. Lädt Page Source und sucht nach .py Dateien
-3. Führt Bandit und Semgrep Scans durch
+3. Führt Bandit und Safety Scans durch
 4. Sucht nach hartcodierten Credentials
 5. Generiert einen Report
 """
@@ -30,22 +30,19 @@ import requests
 # Trage hier die URLs deiner Nachbarn ein
 # Unterstützt: HTTP-URLs und GitHub-Repos
 TARGET_URLS = [
-    "http://192.168.178.198:5001",
+    #"http://192.168.178.198:5001",
     #"http://192.168.1.11:5001",
-    #"http://192.168.1.12:5001",
-    #"http://192.168.1.13:5001",
-    #"https://github.com/username/repo",  # GitHub-Repos werden geklont
+    "https://github.com/Gandalss/Hacking_with_python_2",
+    "https://github.com/Marc-M19/hackingWithPython2" 
 ]
 
 DOWNLOADS_DIR = "./downloads"
 REPORT_FILE = "./scan_report.txt"
 
-# Pfade zu den Security-Tools (falls nicht im PATH)
-SEMGREP_PATH = os.path.expanduser("~/.local/bin/semgrep")
-if not os.path.exists(SEMGREP_PATH):
-    SEMGREP_PATH = os.path.expanduser("~/Library/Python/3.9/bin/semgrep")
-if not os.path.exists(SEMGREP_PATH):
-    SEMGREP_PATH = "semgrep"  # Fallback auf PATH
+# Pfad zu Safety (falls nicht im PATH)
+SAFETY_PATH = os.path.expanduser("~/Library/Python/3.9/bin/safety")
+if not os.path.exists(SAFETY_PATH):
+    SAFETY_PATH = "safety"  # Fallback auf PATH
 
 # Regex-Patterns für Credential-Suche
 CREDENTIAL_PATTERNS = [
@@ -223,8 +220,8 @@ def run_bandit(target_dir):
     """Führt Bandit Security Scanner auf dem Zielverzeichnis aus."""
     results = {"tool": "bandit", "findings": [], "error": None}
 
-    # Prüfe ob Python-Dateien vorhanden sind
-    py_files = [f for f in os.listdir(target_dir) if f.endswith('.py')]
+    # Prüfe ob Python-Dateien vorhanden sind (rekursiv in Unterordnern)
+    py_files = [f for root, dirs, files in os.walk(target_dir) for f in files if f.endswith('.py')]
     if not py_files:
         results["error"] = "Keine Python-Dateien gefunden"
         return results
@@ -249,38 +246,62 @@ def run_bandit(target_dir):
     return results
 
 
-def run_semgrep(target_dir):
-    """Führt Semgrep Security Scanner auf dem Zielverzeichnis aus."""
-    results = {"tool": "semgrep", "findings": [], "error": None}
+def run_safety(target_dir):
+    """Führt Safety Dependency Scanner auf dem Zielverzeichnis aus."""
+    results = {"tool": "safety", "findings": [], "error": None}
 
-    # Prüfe ob Dateien vorhanden sind
-    files = os.listdir(target_dir)
-    if not files:
-        results["error"] = "Keine Dateien gefunden"
+    # Suche nach requirements.txt (rekursiv)
+    requirements_files = []
+    for root, dirs, files in os.walk(target_dir):
+        for f in files:
+            if f == "requirements.txt":
+                requirements_files.append(os.path.join(root, f))
+
+    if not requirements_files:
+        results["error"] = "Keine requirements.txt gefunden"
         return results
 
-    try:
-        cmd = [
-            SEMGREP_PATH,
-            "--config", "auto",
-            "--json",
-            "--quiet",
-            target_dir
-        ]
-        process = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    all_findings = []
+    for req_file in requirements_files:
+        try:
+            cmd = [SAFETY_PATH, "check", "-r", req_file, "--json"]
+            process = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
 
-        if process.stdout:
-            semgrep_output = json.loads(process.stdout)
-            results["findings"] = semgrep_output.get("results", [])
-    except FileNotFoundError:
-        results["error"] = "Semgrep nicht installiert (pip install semgrep)"
-    except subprocess.TimeoutExpired:
-        results["error"] = "Semgrep Timeout"
-    except json.JSONDecodeError:
-        results["error"] = "Semgrep Output konnte nicht geparst werden"
-    except Exception as e:
-        results["error"] = str(e)
+            # Safety gibt Exit-Code 255 bei Findings, also stdout immer prüfen
+            if process.stdout:
+                try:
+                    safety_output = json.loads(process.stdout)
+                    # Safety JSON Format: Liste von Vulnerabilities
+                    if isinstance(safety_output, list):
+                        for vuln in safety_output:
+                            all_findings.append({
+                                "package": vuln[0] if len(vuln) > 0 else "unknown",
+                                "installed": vuln[1] if len(vuln) > 1 else "unknown",
+                                "affected": vuln[2] if len(vuln) > 2 else "unknown",
+                                "vulnerability": vuln[3] if len(vuln) > 3 else "unknown",
+                                "source": req_file
+                            })
+                    elif isinstance(safety_output, dict) and "vulnerabilities" in safety_output:
+                        for vuln in safety_output["vulnerabilities"]:
+                            all_findings.append({
+                                "package": vuln.get("package_name", "unknown"),
+                                "installed": vuln.get("analyzed_version", "unknown"),
+                                "vulnerability": vuln.get("vulnerability_id", "unknown"),
+                                "description": vuln.get("advisory", ""),
+                                "source": req_file
+                            })
+                except json.JSONDecodeError:
+                    pass
 
+        except FileNotFoundError:
+            results["error"] = "Safety nicht installiert (pip install safety)"
+            return results
+        except subprocess.TimeoutExpired:
+            continue
+        except Exception as e:
+            continue
+
+    results["findings"] = all_findings
     return results
 
 
@@ -348,17 +369,19 @@ def generate_report(all_results):
                 report_lines.append(f"      File: {f.get('filename', 'N/A')}:{f.get('line_number', '?')}")
             total_findings += len(findings)
 
-        # Semgrep Findings
-        semgrep = target_result.get("semgrep", {})
-        report_lines.append(f"\n[SEMGREP SCAN]")
-        if semgrep.get("error"):
-            report_lines.append(f"  Error: {semgrep['error']}")
+        # Safety Findings
+        safety = target_result.get("safety", {})
+        report_lines.append(f"\n[SAFETY SCAN - Vulnerable Dependencies]")
+        if safety.get("error"):
+            report_lines.append(f"  Error: {safety['error']}")
         else:
-            findings = semgrep.get("findings", [])
+            findings = safety.get("findings", [])
             report_lines.append(f"  Findings: {len(findings)}")
             for f in findings[:10]:
-                report_lines.append(f"    - [{f.get('extra', {}).get('severity', 'UNKNOWN')}] {f.get('check_id', 'N/A')}")
-                report_lines.append(f"      File: {f.get('path', 'N/A')}:{f.get('start', {}).get('line', '?')}")
+                report_lines.append(f"    - [CVE] {f.get('package', 'unknown')}=={f.get('installed', '?')}")
+                report_lines.append(f"      Vulnerability: {f.get('vulnerability', 'N/A')}")
+                if f.get('description'):
+                    report_lines.append(f"      Info: {f.get('description', '')[:100]}...")
             total_findings += len(findings)
 
         # Credential Findings
@@ -446,9 +469,9 @@ def main():
             print("  [*] Führe Bandit Scan durch...")
             target_result["bandit"] = run_bandit(target_dir)
 
-            # 4. Semgrep Scan
-            print("  [*] Führe Semgrep Scan durch...")
-            target_result["semgrep"] = run_semgrep(target_dir)
+            # 4. Safety Scan (Dependency Check)
+            print("  [*] Führe Safety Scan durch...")
+            target_result["safety"] = run_safety(target_dir)
 
             # 5. Credential Scan
             print("  [*] Suche nach Credentials...")

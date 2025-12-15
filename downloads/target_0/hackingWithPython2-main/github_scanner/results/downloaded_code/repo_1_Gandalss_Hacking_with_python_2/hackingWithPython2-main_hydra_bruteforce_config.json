@@ -1,0 +1,38 @@
+{
+  "target": {
+    "host": "192.168.1.188",
+    "port": 5001,
+    "path": "/login",
+    "method": "http-post-form",
+    "protocol": "http"
+  },
+  "form_parameters": {
+    "username_field": "username",
+    "password_field": "password",
+    "failure_string": "Ungültige Anmeldedaten",
+    "success_string": null,
+    "additional_data": ""
+  },
+  "wordlists": {
+    "usernames": "wordlists/usernames.txt",
+    "passwords": "wordlists/passwords.txt"
+  },
+  "attack_settings": {
+    "threads": 4,
+    "timeout": 30,
+    "wait_time": 0,
+    "verbose": true,
+    "exit_on_first": false
+  },
+  "output": {
+    "log_file": "results/hydra_output.txt",
+    "json_file": "results/successful_logins.json",
+    "detailed_log": "results/hydra_detailed.log"
+  },
+  "notes": {
+    "description": "Hydra Brute-Force Configuration für Flask Login-Formular",
+    "target_app": "Hebeln Mit Kopf - Börsenanalyse-Plattform",
+    "attack_type": "HTTP POST Form-based Authentication",
+    "legal_notice": "NUR für autorisierte Penetrationstests verwenden!"
+  }
+}

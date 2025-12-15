@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-12-14T19:40:26.726833",
+  "statistics": {
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "total_findings": 0,
+  "findings": [],
+  "downloaded_files": [
+    {
+      "repo": "github.com/Gandalss/Hacking_with_python_2/tree/main/hackingWithPython2-main",
+      "files": [],
+      "folders_crawled": [
+        "/"
+      ]
+    }
+  ]
+}

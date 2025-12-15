@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Hebeln Mit Kopf - Tägliche Börsenanalysen & Markteinblicke{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <h1>Hebeln Mit Kopf</h1>
+  <p>Deine tägliche Dosis Börsenanalysen und Markteinblicke. Fundiert, präzise und verständlich aufbereitet für smarte Investoren.</p>
+  {% if user %}
+    <a href="{{ url_for('users') }}" class="btn">Zu den Marktanalysen 📊</a>
+  {% else %}
+    <a href="{{ url_for('login') }}" class="btn">Als Autor anmelden</a>
+  {% endif %}
+</div>
+
+{% if user %}
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Willkommen zurück, {{ user.username }}!</h2>
+    </div>
+    <p>Du bist als Autor angemeldet und kannst jetzt Marktanalysen erstellen und veröffentlichen.</p>
+    <a href="{{ url_for('users') }}" class="btn">Zu den Analysen →</a>
+  </div>
+{% else %}
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Was dich erwartet</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+      <div>
+        <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">📈 Tägliche Analysen</h3>
+        <p class="text-muted">Aktuelle Marktbewegungen und Trends, täglich frisch analysiert und kommentiert.</p>
+      </div>
+      <div>
+        <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">💡 Fundierte Insights</h3>
+        <p class="text-muted">Tiefgehende Analysen von Einzelaktien, Indizes und Marktsektoren mit klaren Einschätzungen.</p>
+      </div>
+      <div>
+        <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">📊 Datenbasiert</h3>
+        <p class="text-muted">Alle Analysen basieren auf fundamentalen Daten, technischen Charts und Marktsentiment.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Aktuelle Marktübersicht</h2>
+    </div>
+    <div class="chart-placeholder">
+      📊 Hier erscheint demnächst ein interaktiver Chart mit aktuellen Marktdaten
+    </div>
+    <p class="text-muted text-center">Bist du Autor? <a href="{{ url_for('login') }}" style="color: var(--primary-blue); font-weight: 600;">Jetzt anmelden</a> und eigene Analysen veröffentlichen.</p>
+  </div>
+{% endif %}
+
+<div class="card" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid var(--primary-blue);">
+  <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">⚠️ Wichtiger Hinweis</h3>
+  <p style="margin-bottom: 0.5rem;"><strong>Keine Anlageberatung:</strong> Alle auf dieser Plattform veröffentlichten Inhalte dienen ausschließlich der Information und Bildung.</p>
+  <p style="margin-bottom: 0;"><strong>Risiko:</strong> Investitionen in Wertpapiere, Derivate und Kryptowährungen sind mit erheblichen Risiken verbunden und können zum Totalverlust des eingesetzten Kapitals führen.</p>
+</div>
+{% endblock %}

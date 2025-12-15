@@ -1,0 +1,7 @@
+# Selenium Brute-Force Tool - Python Dependencies
+
+# Selenium WebDriver
+selenium>=4.15.0
+
+# Optional: Fortschrittsanzeige (falls gewünscht)
+# tqdm>=4.66.0

@@ -1,0 +1,19 @@
+# Username Wordlist für Hydra Brute-Force Tests
+# Format: Ein Username pro Zeile
+# Zeilen mit # werden ignoriert
+
+Marc
+admin
+test
+user
+alice
+bob
+charlie
+demo
+guest
+root
+trader
+analyst
+author
+hebeln
+kopf

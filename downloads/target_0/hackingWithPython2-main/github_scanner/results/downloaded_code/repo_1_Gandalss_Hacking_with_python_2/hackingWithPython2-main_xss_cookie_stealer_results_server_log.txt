@@ -1,0 +1,585 @@
+
+================================================================================
+Timestamp:   2025-12-02T10:43:32.526090
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+Referer:     http://127.0.0.1:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IlRyYWRlcjEyMyJ9fQ.aS60wQ.cR6Bgze-fx3R32zUnLyGIiw9BIU
+
+Flask Session:
+  User ID:   1
+  Username:  Trader123
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T10:43:32.528618
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+Referer:     http://127.0.0.1:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IlRyYWRlcjEyMyJ9fQ.aS60wQ.cR6Bgze-fx3R32zUnLyGIiw9BIU
+
+Flask Session:
+  User ID:   1
+  Username:  Trader123
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T10:43:32.530888
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+Referer:     http://127.0.0.1:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IlRyYWRlcjEyMyJ9fQ.aS60wQ.cR6Bgze-fx3R32zUnLyGIiw9BIU
+
+Flask Session:
+  User ID:   1
+  Username:  Trader123
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T10:43:32.534272
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+Referer:     http://127.0.0.1:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IlRyYWRlcjEyMyJ9fQ.aS60wQ.cR6Bgze-fx3R32zUnLyGIiw9BIU
+
+Flask Session:
+  User ID:   1
+  Username:  Trader123
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:44:03.275610
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:44:03.276793
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:47:26.522510
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:47:26.524989
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:47:28.756087
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:47:28.758193
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:47:44.577971
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:47:44.579898
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Q9g.RbQ6ijgmwgIVY1bIdg3mqsr_8ao
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:48:14.481296
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7R_A.o5fpLsnQMl7ip3a_OuowxLMak4Q
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:48:14.482950
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7R_A.o5fpLsnQMl7ip3a_OuowxLMak4Q
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:48:19.172384
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7R_A.o5fpLsnQMl7ip3a_OuowxLMak4Q
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:48:19.173723
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7R_A.o5fpLsnQMl7ip3a_OuowxLMak4Q
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:48:58.470265
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7SKg.Cdt1HAJgIsyMxbzi1zw1FuJRMN4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:48:58.473003
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7SKg.Cdt1HAJgIsyMxbzi1zw1FuJRMN4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:50:05.802451
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7SKg.Cdt1HAJgIsyMxbzi1zw1FuJRMN4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:50:05.810601
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7SKg.Cdt1HAJgIsyMxbzi1zw1FuJRMN4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:50:06.884184
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7SKg.Cdt1HAJgIsyMxbzi1zw1FuJRMN4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:50:06.884777
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7SKg.Cdt1HAJgIsyMxbzi1zw1FuJRMN4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:04.502270
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:04.503347
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:07.196627
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:07.195756
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:19.575554
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:19.577831
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:31.041149
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:51:31.040119
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7Spg.H47lCjWmzqX1Fu6a6FOiE1GYmgI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:24.004840
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:24.006366
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:25.557359
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:25.559140
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:46.024234
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:46.026485
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:51.288994
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:52:51.289532
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7S9Q.rK86flqrN15aq0_lYOdRUe5rtOI
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:55:57.876894
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7TzA.rZWUjTM40RFk9ZMM2Li-8ZS_Ay4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-02T12:55:57.880264
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://141.87.56.125:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aS7TzA.rZWUjTM40RFk9ZMM2Li-8ZS_Ay4
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-07T17:01:58.811385
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://192.168.1.188:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aTWk8g.u9hKFlusYKCfx0SbOHf3WBv6V3s
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-07T17:01:58.810278
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://192.168.1.188:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aTWk8g.u9hKFlusYKCfx0SbOHf3WBv6V3s
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-07T17:03:17.365409
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://192.168.1.188:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aTWk8g.u9hKFlusYKCfx0SbOHf3WBv6V3s
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-07T17:03:17.366552
+IP:          127.0.0.1
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://192.168.1.188:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aTWk8g.u9hKFlusYKCfx0SbOHf3WBv6V3s
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================
+
+================================================================================
+Timestamp:   2025-12-09T07:59:19.402592
+IP:          192.168.1.145
+User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15
+Referer:     http://192.168.1.188:5001/
+Method:      GET
+Cookie:      session=eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Im1hcmMifX0.aTfInQ.uSxW3mTDHcqjziSHl7Drnyq6rhY
+
+Flask Session:
+  User ID:   1
+  Username:  marc
+================================================================================

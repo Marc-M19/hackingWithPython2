@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Autor Registrierung - Hebeln Mit Kopf{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 2rem auto;">
+  <div class="card-header">
+    <h2 class="card-title">📝 Als Autor registrieren</h2>
+  </div>
+  <p class="text-muted" style="margin-bottom: 2rem;">Erstelle einen Autor-Account und beginne, deine Börsenanalysen zu veröffentlichen.</p>
+
+  <form method="post">
+    <div>
+      <label for="username">Autor-Name / Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="z.B. TradingPro2025"
+        required
+        maxlength="150"
+        autocomplete="username"
+      >
+      <small class="text-muted" style="display: block; margin-top: 0.25rem;">Dieser Name wird unter deinen Analysen angezeigt.</small>
+    </div>
+
+    <div>
+      <label for="password">Passwort</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Sicheres Passwort wählen"
+        required
+        maxlength="255"
+        autocomplete="new-password"
+      >
+      <small class="text-muted" style="display: block; margin-top: 0.25rem;">Mindestens 8 Zeichen empfohlen.</small>
+    </div>
+
+    <div>
+      <label for="bio">Über dich / Trading-Fokus (Optional)</label>
+      <textarea
+        id="bio"
+        name="bio"
+        rows="5"
+        maxlength="512"
+        placeholder="Beschreibe kurz deinen Trading-Stil, Erfahrung oder Fokus (z.B. 'Spezialisiert auf Tech-Aktien und Momentum-Trading')..."
+      ></textarea>
+      <small class="text-muted" style="display: block; margin-top: 0.25rem;">Max. 512 Zeichen - wird in deinem Profil angezeigt.</small>
+    </div>
+
+    <button type="submit" style="width: 100%; margin-top: 1rem;">Account erstellen</button>
+  </form>
+
+  <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+    <p class="text-muted">Bereits registriert?</p>
+    <a href="{{ url_for('login') }}" class="btn btn-secondary" style="margin-top: 0.5rem;">Zum Login</a>
+  </div>
+</div>
+
+<div class="card" style="max-width: 600px; margin: 2rem auto; background: #fef3c7; border: 2px solid var(--warning-yellow);">
+  <h3 style="color: #92400e; margin-bottom: 0.5rem;">⚠️ Wichtig</h3>
+  <p style="margin-bottom: 0; color: #92400e; font-size: 0.9rem;">Mit der Registrierung verpflichtest du dich, nur sachliche und fundierte Analysen zu veröffentlichen. Keine Finanzberatung oder Kauf-/Verkaufsempfehlungen!</p>
+</div>
+{% endblock %}

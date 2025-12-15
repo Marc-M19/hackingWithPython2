@@ -1,0 +1,204 @@
+============================================================
+GITHUB SECURITY SCANNER REPORT
+Erstellt: 14.12.2025 19:43:33
+============================================================
+
+Gesamt Findings: 28
+  HIGH:   10
+  MEDIUM: 17
+  LOW:    1
+
+------------------------------------------------------------
+DETAILS
+------------------------------------------------------------
+
+
+REPO: https://github.com/Gandalss/Hacking_with_python_2
+----------------------------------------
+  [HIGH] Hardcoded Password
+    Scanner: secret-scanner
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_simple_server.py:40
+    Code: password = 'password'
+    Moegliches Secret gefunden: Hardcoded Password
+
+  [HIGH] Hardcoded Password
+    Scanner: secret-scanner
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_kolleg.py:41
+    Code: password = 'password'
+    Moegliches Secret gefunden: Hardcoded Password
+
+  [HIGH] Hardcoded Password
+    Scanner: secret-scanner
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_final.py:90
+    Code: password = 'password'
+    Moegliches Secret gefunden: Hardcoded Password
+
+  [HIGH] Hardcoded Password
+    Scanner: secret-scanner
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_fixed.py:65
+    Code: password = 'password'
+    Moegliches Secret gefunden: Hardcoded Password
+
+  [HIGH] B201
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_app.py:256
+    Code: 255 if __name__ == "__main__":
+256     app.run(debug=True, port=5001, host='0.0.
+    A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the ex
+
+  [MEDIUM] B104
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_app.py:256
+    Code: 255 if __name__ == "__main__":
+256     app.run(debug=True, port=5001, host='0.0.
+    Possible binding to all interfaces.
+
+  [HIGH] B201
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_results_downloaded_code_url_1_http___192_168_1_145_5001__app.py:252
+    Code: 251 if __name__ == "__main__":
+252     app.run(debug=True, port=5001, host='0.0.
+    A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the ex
+
+  [MEDIUM] B104
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_results_downloaded_code_url_1_http___192_168_1_145_5001__app.py:252
+    Code: 251 if __name__ == "__main__":
+252     app.run(debug=True, port=5001, host='0.0.
+    Possible binding to all interfaces.
+
+  [HIGH] B501
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_scanner.py:260
+    Code: 259         try:
+260             response = requests.get(url, timeout=10, verify
+    Call to requests with verify=False disabling SSL certificate checks, security issue.
+
+  [HIGH] B201
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_final.py:158
+    Code: 157     app.run(
+158         debug=True,
+159         host='0.0.0.0',
+160        
+    A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the ex
+
+  [MEDIUM] B104
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_final.py:159
+    Code: 158         debug=True,
+159         host='0.0.0.0',
+160         port=9999,
+
+    Possible binding to all interfaces.
+
+  [HIGH] B201
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_kolleg.py:67
+    Code: 66     app.run(
+67         debug=True,
+68         host='0.0.0.0',
+69         por
+    A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the ex
+
+  [MEDIUM] B104
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_kolleg.py:68
+    Code: 67         debug=True,
+68         host='0.0.0.0',
+69         port=9999,
+
+    Possible binding to all interfaces.
+
+  [MEDIUM] B104
+    Scanner: bandit
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_simple_server.py:108
+    Code: 107 if __name__ == "__main__":
+108     HOST = '0.0.0.0'
+109     PORT = 8889
+
+    Possible binding to all interfaces.
+
+  [MEDIUM] python.flask.security.injection.raw-html-concat.raw-html-format
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_app.py:223
+    Code: requires login
+    Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassi
+
+  [MEDIUM] python.flask.security.audit.directly-returned-format-string.directly-returned-format-string
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_app.py:251
+    Code: requires login
+    Detected Flask route directly returning a formatted string. This is subject to cross-site scripting 
+
+  [MEDIUM] python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_app.py:256
+    Code: requires login
+    Running flask app with host 0.0.0.0 could expose the server publicly.
+
+  [MEDIUM] python.flask.security.audit.debug-enabled.debug-enabled
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_app.py:256
+    Code: requires login
+    Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it will le
+
+  [LOW] python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_hydra_bruteforce_analyze_results.py:99
+    Code: requires login
+    Detected a request using 'http://'. This request will be unencrypted, and attackers could listen int
+
+  [MEDIUM] python.flask.security.injection.raw-html-concat.raw-html-format
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_results_downloaded_code_url_1_http___192_168_1_145_5001__app.py:219
+    Code: requires login
+    Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassi
+
+  [MEDIUM] python.flask.security.audit.directly-returned-format-string.directly-returned-format-string
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_results_downloaded_code_url_1_http___192_168_1_145_5001__app.py:247
+    Code: requires login
+    Detected Flask route directly returning a formatted string. This is subject to cross-site scripting 
+
+  [MEDIUM] python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_results_downloaded_code_url_1_http___192_168_1_145_5001__app.py:252
+    Code: requires login
+    Running flask app with host 0.0.0.0 could expose the server publicly.
+
+  [MEDIUM] python.flask.security.audit.debug-enabled.debug-enabled
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_results_downloaded_code_url_1_http___192_168_1_145_5001__app.py:252
+    Code: requires login
+    Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it will le
+
+  [HIGH] python.requests.security.disabled-cert-validation.disabled-cert-validation
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_security_scanner_scanner.py:260
+    Code: requires login
+    Certificate verification has been explicitly disabled. This permits insecure connections to insecure
+
+  [MEDIUM] python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_final.py:157
+    Code: requires login
+    Running flask app with host 0.0.0.0 could expose the server publicly.
+
+  [MEDIUM] python.flask.security.audit.debug-enabled.debug-enabled
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_final.py:157
+    Code: requires login
+    Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it will le
+
+  [MEDIUM] python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_kolleg.py:66
+    Code: requires login
+    Running flask app with host 0.0.0.0 could expose the server publicly.
+
+  [MEDIUM] python.flask.security.audit.debug-enabled.debug-enabled
+    Scanner: semgrep
+    Datei: /Users/luisvincentstiller/Documents/GitHub/Hacking_with_python_2/hackingWithPython2-main/github_scanner/results/downloaded_code/repo_1_Gandalss_Hacking_with_python_2/hackingWithPython2-main_xss_keylogger_server_kolleg.py:66
+    Code: requires login
+    Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it will le

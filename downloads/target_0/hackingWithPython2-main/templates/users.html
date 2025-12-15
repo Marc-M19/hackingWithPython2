@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Marktanalysen - Hebeln Mit Kopf{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h1 class="card-title">📊 Tägliche Marktanalysen</h1>
+  </div>
+  <p class="text-muted">Hier findest du alle veröffentlichten Börsenanalysen, Markteinschätzungen und Trading-Insights.</p>
+</div>
+
+{% if users %}
+  <div class="posts-grid">
+    {% for u in users %}
+      <div class="post-card">
+        <div class="post-header">
+          <div>
+            <div class="post-date">{{ u.created_at.strftime('%d.%m.%Y') if u.created_at else 'Datum unbekannt' }}</div>
+            <h3 class="post-title">{{ u.username }}</h3>
+          </div>
+        </div>
+
+        <span class="post-category">
+          {% if loop.index % 3 == 0 %}
+            Technische Analyse
+          {% elif loop.index % 3 == 1 %}
+            Fundamental
+          {% else %}
+            Marktübersicht
+          {% endif %}
+        </span>
+
+
+      <!-- ══════════════════════════════════════════════════════════════════════════════ -->
+        <!-- Hier u.bio|safe entfernt -->
+        <div class="post-content">
+          {{ u.bio if u.bio else 'Heute schauen wir uns die aktuellen Marktbewegungen an und analysieren die wichtigsten Entwicklungen im DAX, S&P 500 und den Tech-Werten. Besonderes Augenmerk liegt auf...' }}
+        </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════════════════ -->
+        <div class="chart-placeholder" style="min-height: 150px; font-size: 0.875rem;">
+          📈 Chart-Analyse: {{ u.username }}<br>
+          <span style="font-size: 0.75rem;">Platzhalter für technische Charts</span>
+        </div>
+
+        <div class="market-status {% if loop.index % 3 == 0 %}bullish{% elif loop.index % 3 == 1 %}neutral{% else %}bearish{% endif %}">
+          {% if loop.index % 3 == 0 %}
+            🟢 Bullish
+          {% elif loop.index % 3 == 1 %}
+            ⚪ Neutral
+          {% else %}
+            🔴 Bearish
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="card">
+    <p class="text-center text-muted">Noch keine Marktanalysen verfügbar. Schaue später wieder vorbei!</p>
+  </div>
+{% endif %}
+
+<div class="card mt-2" style="background: var(--light-blue);">
+  <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">💡 Tipp für Analysten</h3>
+  <p style="margin-bottom: 0;">Als angemeldeter Autor kannst du neue Marktanalysen erstellen und bestehende bearbeiten. Die Analysen werden automatisch mit Zeitstempel und deinem Namen versehen.</p>
+</div>
+{% endblock %}
