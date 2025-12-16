@@ -1,6 +1,6 @@
 ======================================================================
 VULNERABILITY SCAN REPORT
-Generiert: 2025-12-15 17:32:11
+Generiert: 2025-12-16 09:13:23
 ======================================================================
 
 
@@ -42,7 +42,7 @@ TARGET: https://github.com/Marc-M19/hackingWithPython2
 ======================================================================
 
 [BANDIT SCAN]
-  Findings: 14
+  Findings: 77
     - [UNKNOWN] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
       File: ./downloads/target_1/app.py:276
     - [UNKNOWN] Possible binding to all interfaces.
@@ -55,35 +55,41 @@ TARGET: https://github.com/Marc-M19/hackingWithPython2
       File: ./downloads/target_1/bruteforce_requests.py:30
     - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
       File: ./downloads/target_1/bruteforce_selenium.py:30
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_1/downloads/target_0/hackingWithPython2-main/app.py:79
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_1/downloads/target_0/hackingWithPython2-main/app.py:96
+    - [UNKNOWN] Try, Except, Pass detected.
+      File: ./downloads/target_1/downloads/target_0/hackingWithPython2-main/app.py:163
     - [UNKNOWN] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
-      File: ./downloads/target_1/downloads/target_0/attacker_server.py:189
-    - [UNKNOWN] Possible binding to all interfaces.
-      File: ./downloads/target_1/downloads/target_0/attacker_server.py:190
-    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
-      File: ./downloads/target_1/downloads/target_0/bruteforce_requests.py:30
-    - [UNKNOWN] Possible hardcoded password: 'passwords.txt'
-      File: ./downloads/target_1/downloads/target_0/bruteforce_selenium.py:30
+      File: ./downloads/target_1/downloads/target_0/hackingWithPython2-main/app.py:256
 
 [SAFETY SCAN - Vulnerable Dependencies]
   Findings: 0
 
 [CREDENTIAL SCAN]
-  Findings: 7
+  Findings: 14
     - [Hardcoded Password] test.sql:1
       Match: password = '{password}'
-    - [MySQL Connection String] scanner.py:58
+    - [MySQL Connection String] scanner.py:55
       Match: mysql://[^:]+:([^@
-    - [PostgreSQL Connection String] scanner.py:59
+    - [PostgreSQL Connection String] scanner.py:56
       Match: postgresql://[^:]+:([^@
-    - [Hardcoded Password] scan_report.txt:17
+    - [Hardcoded Password] scan_report.txt:54
       Match: password: 'passwords.txt'
-    - [Hardcoded Password] scan_report.txt:19
+    - [Hardcoded Password] scan_report.txt:56
       Match: password: 'passwords.txt'
-    - [MySQL Connection String] scan_report.txt:28
-      Match: mysql://[^:]+:([^@
-    - [PostgreSQL Connection String] scan_report.txt:30
-      Match: postgresql://[^:]+:([^@
+    - [Hardcoded Password] scan_report.txt:62
+      Match: password: 'passwords.txt'
+    - [Hardcoded Password] scan_report.txt:64
+      Match: password: 'passwords.txt'
+    - [Hardcoded Password] scan_report.txt:73
+      Match: password = '{password}'
+    - [Hardcoded Password] scan_report.txt:79
+      Match: password: 'passwords.txt'
+    - [Hardcoded Password] scan_report.txt:81
+      Match: password: 'passwords.txt'
 
 ======================================================================
-ZUSAMMENFASSUNG: 87 Schwachstellen gefunden
+ZUSAMMENFASSUNG: 157 Schwachstellen gefunden
 ======================================================================
