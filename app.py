@@ -6,7 +6,8 @@ import mysql.connector
 import os
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # for sessions
+
+app.secret_key = "secret"  
 
 # XSS DEMO: HttpOnly Cookie deaktivieren (damit document.cookie funktioniert)
 app.config['SESSION_COOKIE_HTTPONLY'] = True
