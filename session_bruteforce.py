@@ -161,9 +161,6 @@ def main():
     print("[+] flask-unsign gefunden\n")
 
     # Session Cookie abfragen
-    print("Session Cookie aus Browser holen:")
-    print("  DevTools (F12) -> Application -> Cookies -> 'session'")
-    print()
     session_cookie = input("Session Cookie: ").strip()
 
     if not session_cookie:
